@@ -43,6 +43,131 @@
 \section{Statistical Learning}
 
 
+\subsection{Elements in ML}
+
+{\textbf {1. Instance/example:}}\\
+$ x $, $ x \in X $\\
+
+
+{\textbf {2. Instance space/domain:}}\\
+$ X $ (where the instance comes from).\\
+
+
+{\textbf {3. Label:}}\\
+Each instance has a label, or class. Label can be 0/1 or +/-.\\
+
+
+{\textbf {4. Concept:}}\\
+There's a function $ c $, called concept, that tells the
+{\textbf {true}} relationship between instance and label.
+\begin{equation*}
+				\text{ concept }c: X \rightarrow \left\{ 0,1 \right\} 
+\end{equation*}
+Each instance $ x $ is labeled by $ c(x) $.
+{\underline {Our goal is to find this $ c(\cdot) $}}.\\
+
+
+{\textbf {5. Hypothesis:}}\\
+Note, this is {\underline {NOT}} the same one as we
+say in econometrics. 
+Hypothesis, $ h(\cdot ) $, is a function that the machine use to do the
+{\underline {prediction}} given an instance $ x $.
+\begin{equation*}
+				h: X \rightarrow \left\{ 0, 1 \right\} 
+\end{equation*}\\
+
+
+{\textbf {6. Concept VS Hypothesis:}}\\
+Concept is the {\underline {TRUE}} relationship between $ x $ and label.\\
+Hypothesis is the {\underline {GUESS}} of our machine given the training data.\\
+
+
+{\textbf {7. Concept class:}}\\
+$ C $ is where concept $ c $ comes from, $ c \in C $.\\
+
+
+{\textbf {8. Distribution:}}\\
+All instances are generated from a particular distribution $ D $.
+We call it {\underline {target distribution}} or distribution for short.
+\begin{equation*}
+				x_{i} \sim D, i.i.d.
+\end{equation*}\\
+
+
+{\textbf {Hypothesis class:}}\\
+It tells where the hypothesis comes from.
+We allow $ h $ and $ c $ come from different classes.
+\begin{equation*}
+				h \in \mathcal{H}
+\end{equation*}\\
+
+
+
+\newpage
+
+
+\subsection{ML Process}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{ml-process}
+    \caption{ML process}
+    \label{fig:ml-process}
+\end{figure}
+
+
+\subsection{PAC Learning}
+
+We want to see $ h(x) = c(x) $\\
+We DO NOT want to see $ h(x) \ne c(x) $\\
+
+\subsubsection{How we measure error:}
+
+\begin{equation*}
+				err_{D}(h) = Pr_{x \sim D} \left[ h(x) \ne c(x) \right] 
+\end{equation*}
+
+We want this,
+
+\begin{equation*}
+				err_{D}(h) \le \varepsilon ,
+\end{equation*}
+where $ \varepsilon  $ is a small positive number.
+
+To guarantee the machine work well, we require the following condition,
+\begin{equation*}
+				Pr \left( err_{D}(h) \le \varepsilon  \right) \ge 1-\delta 
+\end{equation*}
+where $ \delta  $ is a small positive number.
+
+Hence, $ err_{D} \le \varepsilon  $ requires algorithm to be more accurate.
+$ Pr(err \le \varepsilon ) \ge 1 - \delta  $ requires the probability of
+this correction to be {\underline {high}}.
+
+This method is called {\underline {Probability approximately correct}},
+or PAC for short.\\
+
+================================================\\
+We say concept space $ C $ is PAC-learnable by $ \mathcal{H} $,\\
+if there exist an algorithm (alg.) $ A $, $ \forall c \in C $,
+$ \forall  $ distribution $ D $, $ \forall \varepsilon > 0, \delta >0 $,\\
+$ A $ takes $ m = poly(\frac{1}{\varepsilon }, \frac{1}{\delta },\cdots) $
+random examples $ x_{i} \sim D $,\\
+that it makes output hypothesis $ h \in \mathcal{H} \quad s.t.$ 
+$ Pr(err_{D}(h) \le \varepsilon ) \ge 1 - \delta  $.
+
+NB: m is sample size. The more data we have, the higher accuracy that
+$ h(\cdot ) $ will be. Hence, m is {\underline {negative correlated}} with
+$ \varepsilon  $ and $ \delta  $.
+
+
+================================================\\
+
+
+
+
+
+
 
 
 
