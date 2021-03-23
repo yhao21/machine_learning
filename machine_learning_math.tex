@@ -163,9 +163,109 @@ $ \varepsilon  $ and $ \delta  $.
 
 ================================================\\
 
+\newpage
+Here's an example:
+For $ X \in {\rm I\!R} $
+\begin{figure}[ht]
+    \centering
+    \incfig{threshold}
+    \caption{Threshold}
+    \label{fig:threshold}
+\end{figure}
 
 
+There are many instances on the real line. Concept $ c $ is a threshold Function.
 
+All instances on the right are labeled by + (True)\\
+All instances on the left are labeled by - (False)\\
+
+
+What we are doing is like this,
+
+\begin{figure}[ht]
+    \centering
+    \incfig{hyp.-and-concept}
+    \caption{hyp. and concept}
+    \label{fig:hyp.-and-concept}
+\end{figure}
+
+
+So, output $ h(x) $ would be
+\begin{equation*}
+				h(x) = 
+				\begin{cases}
+				+ \quad \text{ if } x \ge b\\
+				- \quad \text{ O.W. }
+				\end{cases}
+\end{equation*}
+
+In this case, we say $ \mathcal{H} = C $.
+
+
+\newpage
+Now, let's consider a general case.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{general-case}
+    \caption{General case}
+    \label{fig:general-case}
+\end{figure}
+
+If a training data example $ x_{i} $ falls in $ (c, c + \varepsilon ) $, region
+R, we have to shift $ h(\cdot ) $ to the left of $ x_{i} $, so that
+\begin{equation*}
+				Pr \left[ \quad
+				err_{D}(h) > \varepsilon \quad \right] \le 
+				Pr \left( \quad
+				\text{  no } x_{i} \text{ in } R \quad\right) 
+				= 
+				Pr \left( 
+				x_1 \notin R, x_2 \notin R, \cdots x_{m}, \notin R\right) 
+\end{equation*}
+
+Since $ x_{i} $  is $ i.i.d. $, we can write
+\begin{equation*}
+				Pr (x_1 \notin R, \cdots, x_{m} \notin R)
+				= \prod_{i = 1} ^ m Pr(x_{i} \notin R) = \prod_{i = 1} ^ m
+				(1 - \varepsilon ) = (1 - \varepsilon )^{m}
+\end{equation*}
+
+Recall from basic calculus, $ 1 + x \le e^{x} $, so we can rewrite
+\begin{equation*}
+				(1 - \varepsilon )^{m} \le (e^{ - \varepsilon })^{m} 
+				= e^{ - \varepsilon m}
+\end{equation*}
+
+Also, since
+\begin{equation*}
+				Pr (err_{D}(h) \le \varepsilon ) \ge 1 - \delta
+\end{equation*}
+we have
+\begin{equation*}
+				Pr (err_{D}(h) > \varepsilon ) \le \delta 
+\end{equation*}
+
+
+So, we end up with 
+\begin{align*}
+				Pr (err_{D}(h) > \varepsilon ) &\le e^{ - \varepsilon m}\\
+				& \le \delta 
+\end{align*}
+
+
+We need to solve for m, so that we can know the condition for sample size.
+Because we need to make sure this upper bound, $ e^{ - \varepsilon m} $,
+no greater than $ \delta  $, we can write this,
+\begin{align*}
+				e^{ - \varepsilon m} &\le \delta \\
+				 - \varepsilon m & \le \ln \delta \\
+				m & \ge   - \frac{\ln \delta }{\varepsilon }\\
+				m & \ge \frac{\ln \frac{1}{\delta }}{\varepsilon }
+\end{align*}
+
+It says at least you should have sample size greater than this lower bound
+to guarantee $ Pr(err_{D}(h) \le \varepsilon ) \ge 1 - \delta  $.
 
 
 
