@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.14)  22 MAR 2021 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.14)  23 MAR 2021 07:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -483,31 +483,122 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
-[5] (./machine_learning_math.aux)
+[5] (./figures/threshold.pdf_tex
+<./figures//threshold.pdf, id=32, page=1, 398.97687pt x 111.83441pt>
+File: ./figures//threshold.pdf Graphic file (type pdf)
+<use ./figures//threshold.pdf, page 1>
+Package pdftex.def Info: ./figures//threshold.pdf , page1 used on input line 56
+.
+(pdftex.def)             Requested size: 469.75502pt x 131.67505pt.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
+
+ []
+
+(./figures/hyp.-and-concept.pdf_tex
+<./figures//hyp.-and-concept.pdf, id=33, page=1, 443.4102pt x 83.9092pt>
+File: ./figures//hyp.-and-concept.pdf Graphic file (type pdf)
+<use ./figures//hyp.-and-concept.pdf, page 1>
+Package pdftex.def Info: ./figures//hyp.-and-concept.pdf , page1 used on input 
+line 56.
+(pdftex.def)             Requested size: 469.75502pt x 88.89465pt.
+<./figures//hyp.-and-concept.pdf, id=34, page=2, 443.4102pt x 83.9092pt>
+File: ./figures//hyp.-and-concept.pdf Graphic file (type pdf)
+<use ./figures//hyp.-and-concept.pdf, page 2>
+Package pdftex.def Info: ./figures//hyp.-and-concept.pdf , page2 used on input 
+line 58.
+(pdftex.def)             Requested size: 469.75502pt x 88.89465pt.
+<./figures//hyp.-and-concept.pdf, id=35, page=3, 443.4102pt x 83.9092pt>
+File: ./figures//hyp.-and-concept.pdf Graphic file (type pdf)
+<use ./figures//hyp.-and-concept.pdf, page 3>
+Package pdftex.def Info: ./figures//hyp.-and-concept.pdf , page3 used on input 
+line 62.
+(pdftex.def)             Requested size: 469.75502pt x 88.89465pt.
+<./figures//hyp.-and-concept.pdf, id=36, page=4, 443.4102pt x 83.9092pt>
+File: ./figures//hyp.-and-concept.pdf Graphic file (type pdf)
+<use ./figures//hyp.-and-concept.pdf, page 4>
+Package pdftex.def Info: ./figures//hyp.-and-concept.pdf , page4 used on input 
+line 64.
+(pdftex.def)             Requested size: 469.75502pt x 88.89465pt.
+<./figures//hyp.-and-concept.pdf, id=37, page=5, 443.4102pt x 83.9092pt>
+File: ./figures//hyp.-and-concept.pdf Graphic file (type pdf)
+<use ./figures//hyp.-and-concept.pdf, page 5>
+Package pdftex.def Info: ./figures//hyp.-and-concept.pdf , page5 used on input 
+line 66.
+(pdftex.def)             Requested size: 469.75502pt x 88.89465pt.
+<./figures//hyp.-and-concept.pdf, id=38, page=6, 443.4102pt x 83.9092pt>
+File: ./figures//hyp.-and-concept.pdf Graphic file (type pdf)
+<use ./figures//hyp.-and-concept.pdf, page 6>
+Package pdftex.def Info: ./figures//hyp.-and-concept.pdf , page6 used on input 
+line 70.
+(pdftex.def)             Requested size: 469.75502pt x 88.89465pt.
+) [6 <./figures//threshold.pdf> <./figures//hyp.-and-concept.pdf
+
+pdfTeX warning: pdflatex (file ./figures//hyp.-and-concept.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+> <./figures//hyp.-and-concept.pdf
+
+pdfTeX warning: pdflatex (file ./figures//hyp.-and-concept.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+> <./figures//hyp.-and-concept.pdf
+
+pdfTeX warning: pdflatex (file ./figures//hyp.-and-concept.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+> <./figures//hyp.-and-concept.pdf
+
+pdfTeX warning: pdflatex (file ./figures//hyp.-and-concept.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+> <./figures//hyp.-and-concept.pdf
+
+pdfTeX warning: pdflatex (file ./figures//hyp.-and-concept.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+> <./figures//hyp.-and-concept.pdf
+
+pdfTeX warning: pdflatex (file ./figures//hyp.-and-concept.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+>] (./figures/general-case.pdf_tex
+<./figures//general-case.pdf, id=46, page=1, 476.55396pt x 144.55402pt>
+File: ./figures//general-case.pdf Graphic file (type pdf)
+<use ./figures//general-case.pdf, page 1>
+Package pdftex.def Info: ./figures//general-case.pdf , page1 used on input line
+ 56.
+(pdftex.def)             Requested size: 469.75502pt x 142.49791pt.
+<./figures//general-case.pdf, id=47, page=2, 476.55396pt x 144.55402pt>
+File: ./figures//general-case.pdf Graphic file (type pdf)
+<use ./figures//general-case.pdf, page 2>
+Package pdftex.def Info: ./figures//general-case.pdf , page2 used on input line
+ 59.
+(pdftex.def)             Requested size: 469.75502pt x 142.49791pt.
+) [7 <./figures//general-case.pdf> <./figures//general-case.pdf
+
+pdfTeX warning: pdflatex (file ./figures//general-case.pdf): PDF inclusion: mul
+tiple pdfs with page group included in a single page
+>] [8] (./machine_learning_math.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5854 strings out of 481199
- 89281 string characters out of 5913700
- 377415 words of memory out of 5000000
- 22686 multiletter control sequences out of 15000+600000
+ 5902 strings out of 481199
+ 91082 string characters out of 5913700
+ 380414 words of memory out of 5000000
+ 22725 multiletter control sequences out of 15000+600000
  418099 words of font info for 83 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 68i,15n,75p,294b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,15n,75p,297b,419s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
-local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
-al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on machine_learning_math.pdf (5 pages, 97498 bytes).
+></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
+ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on machine_learning_math.pdf (8 pages, 116350 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
