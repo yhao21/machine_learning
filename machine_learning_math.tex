@@ -269,6 +269,321 @@ to guarantee $ Pr(err_{D}(h) \le \varepsilon ) \ge 1 - \delta  $.
 
 
 
+\subsection{Finite Hypothesis Space}
+
+Let's start with finite hypothesis space case, $ \left\lvert 
+\mathcal{H} \right\rvert < \infty  $.
+
+============================================\\
+Theorem:
+
+Suppose hypothesis space $ \mathcal{H} $ is finite, Algorithm $ A $ finds
+hypothesis $ h_{A} \in \mathcal{H} $ is consistent with $ m $ random 
+training examples where
+\begin{equation}
+				m \ge \frac{1}{\varepsilon }(\ln \left\lvert \mathcal{H} \right\rvert 
+				 + \ln \frac{1}{\delta })
+\end{equation}
+
+Then we can say 
+\begin{equation}
+				Pr \left[ 
+				err_{D}(h_{A}) > \varepsilon \right] 
+				\le \delta 
+\end{equation}
+
+or it is PAC learnable.
+
+
+Equivalently, we can write,
+\begin{align*}
+				&\text{with } prob. \ge 1 - \delta,\\
+				&err_{D}(h) \le  \frac{\ln \left\lvert \mathcal{H} \right\rvert 
+				 + \ln \frac{1}{\delta }}{m} = \varepsilon 
+\end{align*}
+where $ h $ is a random variable.\\
+
+================================\\
+Notice, {\underline {consistent}} here is NOT what we mean in Econometrics!!\\
+Here, consistent means {\underline {hyp.}} makes NO mistake in training examples.
+
+================================
+
+
+In last section we have 
+\begin{equation*}
+				m \ge  \frac{\ln \frac{1}{\delta }}{\varepsilon }.
+\end{equation*}
+
+Now, we add $ \ln \left\lvert \mathcal{H} \right\rvert  $ to the RHS,
+\begin{equation*}
+				m \ge  \frac{1}{\varepsilon }
+				(\ln \left\lvert \mathcal{H} \right\rvert  + \ln \frac{1}{\delta })
+\end{equation*}
+
+Term $ \ln \left\lvert \mathcal{H} \right\rvert  $ measures the 
+{\underline {complexity}} of the hypothesis space.\\
+
+================================\\
+Complexity:\\
+If we want to give each hyp. a name in $ \mathcal{H} $, how many bits we need
+to do that?
+
+The number of bits you need would be $ log_{2}\left\lvert \mathcal{H}
+\right\rvert  $, where $ \left\lvert \mathcal{H} \right\rvert  $ stands for
+the {\underline {number of hypothesis}} in this class.
+So, here, we use $ \ln \left\lvert \mathcal{H} \right\rvert  $ roughly
+measures the complexity of $ \mathcal{H} $.
+
+================================\\
+
+Recall three conditions we need to do machine learning:
+\begin{enumerate}
+        \item enough data
+				\item fit the training set well
+				\item use simple classifier
+\end{enumerate}
+
+Equation (2) gives us an accurate classifier. Equation (1) tells us we have
+enough data.
+Remember, Alg. $ A $ finds a $ h_{A} $ is consistent with training data.
+And $ \ln \left\lvert \mathcal{H} \right\rvert  $ bound the complexity.
+The more complex it is, the higher value would $ \ln \left\lvert 
+\mathcal{H}\right\rvert  $ be. Then, $ m $ will also go up. It means with
+more complex hypothesis space, we need more data to get an accuracy prediction.
+So, {\underline {we need to limit the complexity}}.
+Note, $ \left\lvert \mathcal{H} \right\rvert  $ is the cardinality, not 
+absolute value.\\
+
+
+================================\\
+Theorem:
+
+Assume given $ m \ge \frac{1}{\varepsilon }(
+\ln \left\lvert \mathcal{H} \right\rvert  + \ln \frac{1}{\delta }) $ examples,
+with $ prob. \ge 1 - \delta  $, 
+
+$ \forall h \in \mathcal{H}: $\\
+if $ h $ is consistent, then $ err_{D}(h) \le \varepsilon  $.
+
+Note, 
+
+if $ err_{D}(h) \le \varepsilon  $, we say $ h $ is $ \text{ 
+$ \varepsilon  $-good} $
+
+if $ err_{D}(h) \le \varepsilon  $, we say $ h $ is $ \text{ 
+$ \varepsilon  $-bad} $
+
+================================\\
+Proof:
+
+$ Pr(\forall h \in \mathcal{H}: h \text{ consistent } \Rightarrow
+h \text{ is } \text{ $ \varepsilon  $-good}) \ge 1 - \delta  $
+
+can be written as 
+
+$ Pr(\exists h \in \mathcal{H}: h \text{ $ cons. $ and $ h $
+is $ \varepsilon  $-bad} ) \le \delta  $. 
+
+================================\\
+Remember $ h $ is a random variable
+because it depends on training samples. But ``$ e $ is $ \varepsilon  $-bad"
+is not a RV.
+
+================================
+
+Let's go back to the proof.
+
+Define
+\begin{equation*}
+				B = \left\{ h \in \mathcal{H}: \text{ $ h $ is $ \varepsilon  $-bad }
+				\right\} 
+\end{equation*}
+So we can write
+\begin{align}
+				&Pr(\exists h \in \mathcal{H}: \text{ $ h $ cons. } \Rightarrow
+				\text{ $ h $ is $ \varepsilon  $-bad })\\
+				=& Pr(\exists h \in B: h \text{ is cons. })\\
+				=& Pr \left( \bigcup _{h \in B} (h \text{ is cons. })  \right) \\
+				=& (h_1 \in B \text{ cons. }) \cup (h_2 \in B \text{ cons. })\cdots
+				   (h_{n} \in B \text{ cons. })\\
+				\le & \sum\limits_{h \in B} Pr (h \text{ cons. })
+				\quad \text{ recall, }
+				Pr(a \cup b) \le Pr(a) + Pr(b)
+\end{align}
+
+Then what is the $ Pr(h \text{ cons. }) $?
+
+Because $ x_{i} $ are $ i.i.d. $,
+\begin{align}
+				Pr(h \text{ cons. })
+				 &= Pr(h(x_1) = c(x_1)\cap \cdots \cap h(x_{m}) = c(x_{m}))\\
+				 &= \prod_{i = 1} ^ m Pr(h(x_{i}) = c(x_{i}))\\
+				 & \le  (1 - \varepsilon )^{m}
+\end{align}
+Note, since $ Pr(h(x_{i}) \ne c(x_{i})) \le \varepsilon  $, so
+$ Pr(h(x_{i}) = c(x_{i})) \le 1 - \varepsilon  $.
+
+Hence, from equation (7) and (10), we can write
+
+\begin{align*}
+				&Pr \left( 
+				\bigcup _{h \in B} (h \text{ cons. }) \right) \\
+				& \le \sum\limits_{h \in B} Pr (h \text{ cons. })\\
+				& \le \left\lvert B \right\rvert (1 - \varepsilon )^{m} \quad
+				\text{ Note, }
+				\left\lvert B \right\rvert \le \left\lvert \mathcal{H} \right\rvert \\ 
+				& \le \left\lvert \mathcal{H} \right\rvert e^{ - \varepsilon m}\\
+				& \le  \delta 
+\end{align*}
+
+
+How do get $ \delta  $ from $ \left\lvert \mathcal{H} \right\rvert 
+e^{ - \varepsilon m}$?\\
+Take log, we have $ \ln \left\lvert \mathcal{H} \right\rvert  - 
+\varepsilon m$.
+Given $ m \ge \frac{1}{\varepsilon }(\ln \left\lvert \mathcal{H} \right\rvert ) $
+\begin{align*}
+				em & \ge \ln \left\lvert \mathcal{H} \right\rvert  + \ln 
+				\frac{1}{\delta }\\
+				- \varepsilon m & \le - \ln \left\lvert \mathcal{H} \right\rvert 
+				 - \ln \frac{1}{\delta } =  - \ln \left\lvert \mathcal{H} \right\rvert 
+				  + \ln \frac{1}{\delta }\\
+				\ln \left\lvert \mathcal{H} \right\rvert   - \varepsilon m
+				& \le \ln \delta \\
+				\left\lvert \mathcal{H} \right\rvert e^{ - \varepsilon m}
+				& \le \delta  \quad \text{ take exponential }\\
+				&Q.E.D.
+\end{align*}
+
+\subsection{Infinite hypothesis space}
+
+
+Suppose we have four examples on the real line. $ h_1 $ and $ h_2 $ give us
+the same prediction.
+\begin{figure}[ht]
+    \centering
+    \incfig{same-prediction}
+    \caption{same prediction}
+    \label{fig:same-prediction}
+\end{figure}
+
+
+The prediction would be different if we do this,
+
+\begin{figure}[ht]
+    \centering
+    \incfig{different-hyp.}
+    \caption{different hyp.}
+    \label{fig:different-hyp.}
+\end{figure}
+
+
+For each of the four instances, hypothesis's behavior can be either labeling
+instance as + or -. So, for $ m $ instances, the max behavior is $ 2^{m} $.
+Here we have $ m + 1 $, 5, hypothesis.
+
+\subsubsection{Growth Function}
+
+A set of examples $ \mathcal S = \left\{ x_1, \cdots, x_{m} \right\}  $ contains
+$ m $ labeled instances. For particular hypothesis $ h $,
+\begin{equation}
+				\Pi _{\mathcal{H}}(\mathcal S) = \left\{ 
+				\left\{ h(x_1), \cdots, h(x_{m}) \right\} : h \in \mathcal{H} \right\} 
+\end{equation}
+where $ \Pi _{\mathcal{H}}(\mathcal S) $ is a set of hypothesis behaviors.
+
+We can look at how bad (maximum number) this set can be.
+\begin{equation*}
+				\Pi _{H}(m) = \max_{\substack{\left\lvert \mathcal S
+				\right\rvert = m \\}}
+				\left\lvert \Pi _{\mathcal{H}}(\mathcal S) \right\rvert 
+\end{equation*}
+These are all cardinality, not absolute value. They measures the size.
+
+The Growth function tells us the maximum number (the worst case) of labeling
+behavior a hypothesis space can make given a sample with size $ m $.
+
+In figure 6, we have $ m + 1 $ hypothesis to make it an effective hypothesis
+space. And $ \Pi _{\mathcal{H}}(m) $ is called the growth function.
+
+
+Recall, when $ \left\lvert \mathcal{H} \right\rvert  < \infty  $ , we have
+\begin{equation*}
+				err_{D}(h) \le \frac{\ln \left\lvert \mathcal{H} \right\rvert 
+				 + \ln \frac{1}{\delta }}{m}
+\end{equation*}
+
+Now, we relax this finite assumption, and we can use the growth function 
+to measure the complexity of the hypothesis space.\\
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    Theorem:
+
+		Given $ m $ training examples, with $ prob. \ge 1 - \delta  $,
+		$ \forall h \in \mathcal{H} $, 
+
+		if $ h $ is consistent, then
+		\begin{equation}
+						err_{D}(h) \le 
+						O \left( \frac{\ln \Pi _{\mathcal{H}}(2m) + \ln \frac{1}{\delta }}
+						{m} \right) 
+		\end{equation}
+    }%
+}
+
+If the growth function is polynomial (this is a nice case),
+\begin{equation*}
+				\Pi _{\mathcal{H}}(m) = O(m^{d})
+\end{equation*}
+where $ d $ is a constant. We use big O here to hide constant terms.
+Hence the error becomes,
+\begin{equation}
+				err_{D}(h) \le \frac{d \ln m  + \ln \frac{1}{\delta }}{m}
+\end{equation}
+
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+						In the nice case, 
+						\begin{equation*}
+										 \Pi _{\mathcal{H}}(m) = O(m^{d}),
+						\end{equation*}
+						it is the finite case.
+
+						In the worst case, the growth function realizes all possible
+						behaviors,
+						\begin{equation*}
+										\Pi _{H}(m) = 2^{m},
+						\end{equation*}
+						it is an infinite case.
+
+    }%
+}\\
+
+
+For any hypothesis space $ \mathcal{H} $, it will be {\underline {either}} the
+{\underline {nice case}}, or {\underline {the worst case}}. There's NO other
+case!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
