@@ -1,6 +1,8 @@
 
 \documentclass[12pt]{article}
 \usepackage{amsmath}
+\DeclareMathOperator*{\argmin}{arg\,min} % thin space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{arg\,max} % thin space, limits underneath in displays
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
@@ -565,27 +567,249 @@ Hence the error becomes,
 
 For any hypothesis space $ \mathcal{H} $, it will be {\underline {either}} the
 {\underline {nice case}}, or {\underline {the worst case}}. There's NO other
-case!
+cases!
+
+
+
+
+In the nice case, {\underline {learning is possible}} because we can solve
+the $ err_{D}(h) $ according to the theorem.\\
+In the worst case, {\underline {learning is not possible}}.
+
+{\textbf {NB:}} \\
+In $ \Pi _{H}(m) = O(m^{d}) $, $ d $ is called the VC-dimension, where
+VC is the short form of Vapnik-Chervnenkis.
+
+Before we introduce VC-dimension, we need to know {\underline {shattering}}
+first. \\
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    {\textbf {Shattering:}}
+
+		Sample $ \mathcal S $ with size $ m $ is shattered by $ \mathcal{H} $, 
+		if all behaviors are possible,
+		$ \left\lvert \Pi _{H}(\mathcal S) \right\rvert = 2^{m}  $.
+
+		Equivalently, we say sample $ \mathcal S $ is shattered by $ \mathcal{H} $,
+		if $ \mathcal{H} $ can dichotomize all elements in sample $ \mathcal S $,
+		i.e., $ \Pi _{H}(\mathcal S) = 2^{m} $.
+    }%
+}\\
+
+
+\newpage
+
+Here's an example
+
+\begin{figure}[ht]
+    \centering
+		\incfig{shattering-example}
+    \caption{shattering example}
+    \label{fig:shattering-example}
+\end{figure}
+
+In a three-point example, sample is not shattered because we {\underline {cannot
+}} label them using one threshold. Hence, we can shatter two points,
+but we can never shatter three points.\\
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    {\textbf {Definition:}}
+
+		The VC-dimension for $ \mathcal{H} $ is the maximum size of a sample,
+		which can be shattered by $ \mathcal{H} $.
+		\begin{equation*}
+						\text{ VC-dim }(\mathcal{H}) = 
+						\max_{\substack{\\}} \left\{ m: \Pi _{\mathcal{H}}(m) = 2^{m}
+						\right\} 
+		\end{equation*}
+    }%
+}\\
+
+In this case, VC-dim(intervals) = 2 because we can only shatter a two-point
+sample.
+
+
+\newpage
+
+Extension:
+
+Linear threshold function (LTF) in $ {\rm I\!R}^{n}  $ looks like this.
+The VC-dim(LTF in $ {\rm I\!R}^{n} $) = $ n + 1 $
+
+\begin{figure}[ht]
+    \centering
+    \incfig{linear-threshold-function}
+    \caption{Linear threshold function}
+    \label{fig:linear-threshold-function}
+\end{figure}
+
+
+\newpage
+
+VC-dim(LTF that go through the origin) = $ n $
+\begin{figure}[ht]
+    \centering
+    \incfig{ltf-go-through-the-origin}
+    \caption{LTF go through the origin}
+    \label{fig:ltf-go-through-the-origin}
+\end{figure}
+
+
+
+For finite hypothesis space $ \mathcal{H} $, 
+\begin{equation*}
+				\text{ VC-dim }(\mathcal{H}) \le \ln \left\lvert \mathcal{H}
+				\right\rvert 
+\end{equation*}
+
+where $ \ln \left\lvert \mathcal{H} \right\rvert  $ measures the complexity
+of the hypothesis space.
 
 
 
 
 
+\newpage
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    {\textbf {Summary:}}
+		
+		Given $ m $ training examples, with $ prob. \ge 1 - \delta  $,
+		$ \forall h \in \mathcal{H} $:
+
+		If $ h $ is consistent, then
+
+    \begin{align}
+						& err_{D}(h) \le \frac{
+						\ln \left\lvert \mathcal{H} \right\rvert  + \ln \frac{1}{\delta }}
+						{m}, \quad
+						\text{ if }\left\lvert \mathcal{H} \right\rvert < \infty
+						\\
+						& err_{D}(h) \le 
+						O \left( \frac{\ln \Pi _{\mathcal{H}}(2m) + \ln \frac{1}{\delta }}
+						{m} \right) , \quad
+						\text{ for all } \mathcal{H}\text{ not only finite ones, }
+    \end{align}
 
 
+    }%
+}\\
 
 
+\subsubsection{Sauer's Lemma}
+
+Review on textbook page 277
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    {\textbf {Sauer's Lemma:}}
+		
+		Given d = VC-dim $ (\mathcal{H}) $,
+		\begin{equation}
+						\Pi _{\mathcal{H}}(m) \le \sum\limits_{i = 0} ^d \binom{m}{i}
+						\le \left( \frac{em}{d} \right) ^{d}, \quad \text{ 
+						if $ m \ge d \ge 1 $}
+		\end{equation}
+		where we can solve binomial term using
+		\begin{equation*}
+						\binom{m}{i} = \frac{m!}{i!(m - i)!}
+		\end{equation*}
+    }%
+}\\
 
 
+Recall, for any $ \mathcal{H} $, either\\
+$ \Pi _{H}(m) = 2^{m} \quad \forall  m$, this means $ d =  $ VC-dim is infinite.
+The worst case
+
+or
+
+$ \Pi _{\mathcal{H}}(m) = O(m^{d}) $ for some constant $ d $.
+This is the nice case. It says $ d =  $VC-dim is finite.
 
 
+If we plug equation (16) into (15),
+\begin{align*}
+				err_{D}(h) & \le O \left( 
+				\frac{\ln \Pi _{\mathcal{H}} + \ln \frac{1}{\delta }}{m}\right) \\
+				& \le O \left( 
+				\frac{\ln \left( \frac{em}{d} \right)^{d}  + \ln \frac{1}{\delta } }{m
+        }\right) \\
+				& \le O \left( 
+				\frac{d \ln \frac{m}{d} + d + \ln \frac{1}{\delta }}{m}\right)
+\end{align*}
+
+So, now, the VC-dim $ =d $ acts like a measure of complexity.
+
+{\textbf {NB:}} the VC-dim also gives us a lower bound of how many examples
+we need for training.
+
+================================\\
+Note, VC-dim$ (\mathcal{H} )= d $ means that there exists ($ \exists  $) a
+sample with size $ d $ which can be shattered by hypothesis space $ \mathcal{H}$.
+Here, we say there exists ($ \exists  $). Hence, it does NOT mean that for all
+sample with size $ d $ can be shattered. One is enough.
+
+================================
 
 
+\subsubsection{Empirical Risk Model (ERM)}
+
+There might be some randomness between today's weather and tomorrow's weather.
+So, in stead of write $ y $ as a direct function of $ x $, $ y = f(x) $, 
+we say instance $ x $ and label $ y $ are in a {\underline {pair}} 
+$ (x, y) $. And this pair is followed a distribution $ D $, $ (x, y) \sim D $.
+
+Hence, the measure of hypothesis $ h(\cdot ) $ becomes
+\begin{equation*}
+				err_{D}(h) = Pr_{(x,y) \sim D} [h(x) \ne y]
+\end{equation*}
+
+Now the problem becomes this:
+
+Given sample $ (x_1,y_1), \cdots, (x_{m},y_{m}) $ where $ (x_{i},y_{i})
+\sim D$.\\
+We want: $ \min_{\substack{h \in \mathcal{H}\\}} err_{D}(h)  $.
+
+This says we want to minimize the error, $ err_{D}(h) $ over all hypothesis in
+$ \mathcal{H} $.
 
 
+Notice, $ err_{D}(h) $ is the generalized error. Our {\textbf {training error}}
+from the machine would be
+\begin{equation*}
+				\widehat{err_{D}(h)} = \frac{1}{m} \sum\limits_{i = 1} ^m
+				1 \left\{ h(x_{i} \ne y_{i}) \right\} 
+\end{equation*}
+where $ 1 \left\{ h(x_{i} \ne y_{i}) \right\} $ is an indicator function.
+We can write it in ECON way:
+\begin{equation}
+				\widehat{err_{D}(h)} = \frac{1}{m}\sum\limits_{i = 1} ^m
+				I, \quad
+				I = 
+				\begin{cases}
+								1 \quad \text{ if } h(x_{i}) \ne y_{i}\\
+								0 \quad o.w.
+				\end{cases}
+\end{equation}
 
+Clearly, $ \frac{1}{m}\sum\limits_{i} I	 $ is the sample mean of the indicator
+function. It says in what percent the outcome hypothesis is wrong. Remember
+$ I = 1 $ when the outcome $ h(x_{i}) $ is NOT the same as true label $ y_{i} $.
 
+Hence, $ \widehat{err_{D}(h)} < 1 $.
 
+And the hypothesis we get from the training machine would be
+\begin{equation}
+				\widehat{h} = \argmin_{h \in \mathcal{H}} err_{D}(h)
+\end{equation}
+
+This method is called {\underline {empirical risk minimization}}, or ERM for
+short. The error term $ \widehat{err_{D}(h)} $ is called {\underline {
+empirical risk}}.
 
 
 
