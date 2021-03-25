@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \DeclareMathOperator*{\argmin}{arg\,min} % thin space, limits underneath in displays
 \DeclareMathOperator*{\argmax}{arg\,max} % thin space, limits underneath in displays
+\newtheorem{thm}{Theorem}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
@@ -277,7 +278,12 @@ Let's start with finite hypothesis space case, $ \left\lvert
 \mathcal{H} \right\rvert < \infty  $.
 
 ============================================\\
-Theorem:
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    \begin{thm}
+    
+    \end{thm}
+
 
 Suppose hypothesis space $ \mathcal{H} $ is finite, Algorithm $ A $ finds
 hypothesis $ h_{A} \in \mathcal{H} $ is consistent with $ m $ random 
@@ -304,6 +310,10 @@ Equivalently, we can write,
 				 + \ln \frac{1}{\delta }}{m} = \varepsilon 
 \end{align*}
 where $ h $ is a random variable.\\
+
+    }%
+}\\
+
 
 ================================\\
 Notice, {\underline {consistent}} here is NOT what we mean in Econometrics!!\\
@@ -358,9 +368,12 @@ Note, $ \left\lvert \mathcal{H} \right\rvert  $ is the cardinality, not
 absolute value.\\
 
 
-================================\\
-Theorem:
-
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    \begin{thm}
+    
+    \end{thm}
+    
 Assume given $ m \ge \frac{1}{\varepsilon }(
 \ln \left\lvert \mathcal{H} \right\rvert  + \ln \frac{1}{\delta }) $ examples,
 with $ prob. \ge 1 - \delta  $, 
@@ -376,7 +389,10 @@ $ \varepsilon  $-good} $
 if $ err_{D}(h) \le \varepsilon  $, we say $ h $ is $ \text{ 
 $ \varepsilon  $-bad} $
 
-================================\\
+    }%
+}\\
+
+
 Proof:
 
 $ Pr(\forall h \in \mathcal{H}: h \text{ consistent } \Rightarrow
@@ -519,9 +535,12 @@ Recall, when $ \left\lvert \mathcal{H} \right\rvert  < \infty  $ , we have
 Now, we relax this finite assumption, and we can use the growth function 
 to measure the complexity of the hypothesis space.\\
 
+
 \noindent\fbox{%
     \parbox{\textwidth}{%
-    Theorem:
+    \begin{thm}
+    
+    \end{thm}
 
 		Given $ m $ training examples, with $ prob. \ge 1 - \delta  $,
 		$ \forall h \in \mathcal{H} $, 
@@ -533,7 +552,9 @@ to measure the complexity of the hypothesis space.\\
 						{m} \right) 
 		\end{equation}
     }%
-}
+}\\
+
+
 
 If the growth function is polynomial (this is a nice case),
 \begin{equation*}
@@ -756,7 +777,7 @@ sample with size $ d $ can be shattered. One is enough.
 ================================
 
 
-\subsubsection{Empirical Risk Model (ERM)}
+\subsubsection{Empirical Risk Minimization Model (ERM)}
 
 There might be some randomness between today's weather and tomorrow's weather.
 So, in stead of write $ y $ as a direct function of $ x $, $ y = f(x) $, 
@@ -812,6 +833,352 @@ short. The error term $ \widehat{err_{D}(h)} $ is called {\underline {
 empirical risk}}.
 
 
+
+So what we what to prove is the following theorem.
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+				\begin{thm}
+				
+				\end{thm}
+				For sufficiently large $ m $, with $ prob. \ge 1 - \delta  $, 
+				$ \forall h \in \mathcal{H} $:
+				\begin{equation*}
+								\left\lvert 
+												err_{D}(h) - \widehat{err_{D}(h)}
+								\right\rvert 
+								\le \varepsilon , \quad \text{ here is abs rather cardinality. }
+				\end{equation*}
+
+
+    }%
+}\\
+
+It says that the training error is always close to the generalization error
+for all hypothesis in $ \mathcal{H} $.
+
+This is called {\underline {the uniform convergence result}}.
+If the $ h(\cdot ) $ is consistent, then $ \widehat{err_{D}(h)} = 0 $, 
+and $ err_{D}(h) $ is a small number.
+
+
+Recall,
+\begin{equation*}
+				err_{D}(h) = Pr (h(x) \ne y)
+\end{equation*}
+
+The indicator function appears in equation (17) can be written in this way
+\begin{equation*}
+				I = 
+				\begin{cases}
+				1 \quad \text{ with } prob. = err_{D}(h)\\
+				0 \quad o.w.
+				\end{cases}
+\end{equation*}
+
+And the training error is the sample mean,
+\begin{equation*}
+				\widehat{err_{D}(h)} = \frac{1}{m} \sum\limits_{i = 1} ^m I	
+\end{equation*}
+So, we can prove how fast $ \widehat{err_{D}(h)} $ converge to $ err_{D}(h) $.\\
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    {\textbf {Example:}}
+
+		Given RVs, $ Z_1, \cdots, Z_{m}, \quad i.i.d.$, $ Z_{i} \in \left\{ 0,1
+		\right\}  $.
+		Let $ p = E(Z_{i}) $, expectation. We want to estimate $ p $ by
+		$ \widehat{p} = \frac{1}{m}\sum\limits_{i} Z_{i}	 $, which is the
+		sample mean.
+		And the {\underline {Hoeffing inequality}} tells us (Hoeffding, 1963)
+		\begin{align}
+						Pr \left( 
+						\frac{1}{m}\sum\limits_{i = 1} ^m x_{i} - \frac{1}{m}
+		\sum\limits_{i = 1} ^m E(x_{i}) \ge \varepsilon 	\right) &\le 
+		exp( - 2m \varepsilon ^{2})\\
+		Pr \left( 
+		\left\lvert \frac{1}{m}\sum\limits_{i = 1} ^m x_{i} - \frac{1}{m}
+		\sum\limits_{i = 1} ^m E(x_{i})	\right\rvert \ge \varepsilon  \right) 
+		& \le 2 exp( - 2m \varepsilon ^{2})
+		\end{align}
+		
+    Hence, in our example, we have
+		\begin{equation*}
+						Pr(\widehat{p} - p \ge \varepsilon ) \le exp( - 2m \varepsilon ^{2}),
+		\end{equation*}	
+		where $ m $ stands for sample size, $ \varepsilon \in \left( 0,1 \right)  $.
+		
+		So, we have the sample mean converge to the expectation,
+		\begin{equation*}
+						\frac{1}{m}\sum\limits_{i = 1} ^m	Z_{i} \rightarrow E(Z_{i})
+		\end{equation*}
+
+		Or we can write
+
+		\begin{equation*}
+		\frac{1}{m}\sum\limits_{i} Z_{i} \rightarrow E(\frac{1}{m}\sum\limits_{i} 
+		Z_{i}	)	,
+		\end{equation*}
+		since 
+		$ E(\frac{1}{m}\sum\limits_{i} Z_{i}	) = \frac{1}{m}\sum\limits_{i}
+		E(Z_{i}) = E(Z_{i})$
+		
+    Note,\\
+		$ \frac{1}{m}\sum\limits_{i} Z_{i}	 $ can be written as 
+		$ f(Z_1,\cdots,Z_{m}) $, \\
+		$ E(\frac{1}{m}\sum\limits_{i} Z_{i}	) $ can be written as
+		$ E(f(Z_1,\cdots,Z_{m})) $.
+		Hence, we have 
+    \begin{equation*}
+    f(Z_1,\cdots,Z_{m}) \rightarrow E(f(Z_1,\cdots,Z_{m}))
+    \end{equation*}
+
+
+
+
+    }%
+}\\
+
+
+\subsubsection{McDiarmid's Inequality (McDiarmid, 1989)}
+
+Suppose:\\
+1. $ f(Z_1,\cdots,Z_{m}) $ is real-valued.
+
+2. Changing in $ Z_{i} $ will change $ f(\cdot ) $ by {\underline {at most}}
+$ c_{i} $, i.e., $ \forall Z_1,\cdots,Z_{m} $, $ Z_{i}' $
+
+
+\begin{equation}
+\left\lvert 
+f(Z_1, \cdots, Z_{i}, \cdots, Z_{m}) - f(Z_1, \cdots, Z_{i}', \cdots, Z_{m})
+\right\rvert
+\le c_{i}
+\end{equation}
+
+
+Note, for each $ Z_{i} $, we have a equation (21) and $ c_{i} $. If all $ Z_{i} $
+are changed, then we will have $ m $ number of $ c_{i} $.
+
+3. Instances $ Z_1,\cdots, Z_{m} $ are independent, but NOT necessarily
+identical.
+
+If ALL of the above conditions are hold, then we can prove this convergence
+result,
+
+
+\begin{equation}
+Pr \left( 
+f(Z_1,\cdots,Z_{m}) - E(f(Z_1,\cdots,Z_{m})) \ge \varepsilon 
+\right) 
+\le exp
+\left( 
+\frac{ - 2 \varepsilon ^{2}}{\sum\limits_{i = 1} ^m c_{i}^{2}	}
+\right) 
+\end{equation}
+
+
+In our example,
+\begin{equation*}
+f(Z_1,\cdots,Z_{m}) = \frac{1}{m}\sum\limits_{i = 1} ^m Z_{i}	,
+\quad Z_{i} \in \left\{ 0,1 \right\} 
+\end{equation*}
+
+
+So, $ c_{i} = \frac{1}{m} $ because $ Z_{i} $ is an indicator function. It
+can be either 0 or 1. If one of $ Z_{i} $ change from 0 to 1, $ f(\cdot ) $
+increases $ \frac{1}{m} $, vice versa.
+
+
+
+
+
+
+
+\subsubsection{Proof for Theorem 4}
+
+Recall, theorem 4 says that
+
+For sufficiently large $ m $, with $ prob. \ge 1 - \delta  $, $ \forall 
+h \in \mathcal{H}$:
+
+
+\begin{equation*}
+\left\lvert 
+err_{D}(h) - \widehat{err_{D}(h)}
+\right\rvert 
+\le \varepsilon 
+\end{equation*}
+
+
+Let's prove an easier one first, saying $ \exists h \in \mathcal{H} $,
+the upper inequality holds.\\
+Here,
+
+
+\begin{align*}
+Z_{i} &= I, \quad \text{ where } 
+I = 
+\begin{cases}
+1 \quad \text{ if }h(x_{i}) \ne y_{i}\\
+0 \quad o.w.
+\end{cases}\\
+p  &= E(Z_{i}) = err_{D}(h)\\
+\widehat{p} &= \widehat{err_{D}(h)} = \frac{1}{m}\sum\limits_{i = 1} ^m I	
+\end{align*}
+
+
+From Hoeffding's inequality,
+for $ \left\lvert \mathcal{H} \right\rvert  < \infty $,
+
+
+\begin{equation}
+Pr \left(  \exists h \in \mathcal{H}: 
+\left\lvert err_{D}(h) - \widehat{err_{D}(h)} \ge  \varepsilon  \right\rvert 
+\right)
+\le 2 \left\lvert \mathcal{H} \right\rvert 
+exp \left(   - 2m \varepsilon ^{2} \right)
+\end{equation}
+
+
+where $ \left\lvert \mathcal{H} \right\rvert  $ is the cardinality of 
+$ \mathcal{H} $.\\
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+
+How do we derive equation (23):
+
+\begin{align*}
+LHS  &= Pr \left( 
+\left(\left\lvert 
+err_{D}(h_1) - \widehat{err_{D}(h_1)}
+\right\rvert > \varepsilon  \right)
+\cup \cdots \cup 
+\left(\left\lvert 
+err_{D}(h_{\left\lvert \mathcal{H} \right\rvert }) - \widehat{err_{D}(h_{
+\left\lvert \mathcal{H} \right\rvert })}
+\right\rvert > \varepsilon  \right)
+\right) \\
+& \le \sum\limits_{h \in \mathcal{H}} Pr
+\left(
+\left\lvert 
+err_{D}(h) - \widehat{err_{D}(h)}
+\right\rvert  
+> \varepsilon 
+\right) 
+\end{align*}
+
+From Hoeffding's inequality,
+\begin{equation*}
+Pr \left( 
+\left\lvert 
+err_{D}(h) - \widehat{err_{D}(h)}
+\right\rvert 
+\ge \varepsilon 
+\right) 
+\le 2 exp( - 2m \varepsilon ^{2})
+\end{equation*}
+
+Hence,
+\begin{equation*}
+\sum\limits_{h \in \mathcal{H}} Pr \left( 
+\left\lvert 
+err_{D}(h) - \widehat{err_{D}(h)}
+\right\rvert 
+> \varepsilon 
+\right) 
+\le 2 \left\lvert \mathcal{H} \right\rvert exp ( - 2m \varepsilon ^{2})
+\end{equation*}
+
+}%
+}\\
+
+
+Now, let $ \delta  $ equals to the RHS of equation (23), then we can solve 
+for $ \varepsilon  $.
+
+\begin{align*}
+2 \left\lvert \mathcal{H} \right\rvert exp( - 2m \varepsilon ^{2}) &= \delta \\
+exp( - 2m \varepsilon ^{2}) &= \frac{\delta}{2 \left\lvert \mathcal{H}
+\right\rvert }\\
+ - 2m \varepsilon ^{2} &= \ln \frac{\delta }{2} - \ln 
+ \left\lvert \mathcal{H} \right\rvert \\
+ \varepsilon ^{2} &= \frac{\ln \left\lvert \mathcal{H} \right\rvert 
+  - \ln \frac{\delta }{2}}{2m}\\
+\varepsilon  &= \sqrt { \frac{\ln \left\lvert \mathcal{H} \right\rvert 
+ + \ln \frac{2}{\delta }}{2m}}\\
+\varepsilon  &= O \left( 
+\sqrt { \frac{\ln \left\lvert \mathcal{H} \right\rvert 
+ + \ln \frac{1}{\delta }}{m}}
+\right) 
+\end{align*}
+
+
+Recall, theorem 4, plug in the value of $ \varepsilon  $ in to 
+$ \left\lvert err_{D}(h) - \widehat{err_{D}(h)} \right\rvert \le \varepsilon $.
+
+\begin{equation*}
+\left\lvert err_{D}(h) - \widehat{err_{D}(h)} \right\rvert
+\le O \sqrt {
+\frac{\ln \left\lvert \mathcal{H} \right\rvert  + \ln \frac{1}{\delta }}{m}
+}
+\end{equation*}
+
+Hence, we can write,
+
+\begin{equation}
+\widehat{err_{D}(h)}  - O \left(\sqrt { \frac{\ln \left\lvert \mathcal{H}
+\right\rvert  + \ln \frac{1}{\delta }}{m}}
+\right) \le err_{D}(h) \le \widehat{err_{D}(h)}
+ + O \left(\sqrt { \frac{ \left\lvert \ln \mathcal{H} \right\rvert
+ + \ln \frac{1}{\delta }
+ }{m}}\right)
+\end{equation}
+
+
+
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+
+Clearly, the generalization error, $ err_{D}(h) $, is related to 
+$ \widehat{err_{D}(h)}, \ln \left\lvert \mathcal{H} \right\rvert , m, $ and
+$ \delta  $.
+
+The thing is that we expect the $ \widehat{err_{D}(h)}$ {\underline {goes down}}
+as we {\underline {increase}} the complexity of $ \left\lvert 
+\mathcal{H}\right\rvert  $. Higher complexity of $ \mathcal{H} $ means
+that we add more restrictions to the model. And our model would fit 
+the {\underline {training data}} better. Note, if we complexity if too high
+even though the machine fit the training data better, we would have 
+{\underline {over fitting}} problem.
+
+For $ err_{D}(h) $, as $ \left\lvert \mathcal{H} \right\rvert  $ goes up,
+it decreases initially, because it is affected by the training error.
+However, as $ \mathcal{H} $ getting much more complex, training error becomes
+very small, and $ O(\cdot ) $ dominates the trend. Hence,  $ err_{D}(h) $
+goes up. The graph is shown below.
+
+
+
+}%
+}\\
+
+
+\begin{figure}[ht]
+    \centering
+    \incfig{complexity-of-hyp.-space-and-error-trend}
+    \caption{Complexity of hyp. space and error trend}
+    \label{fig:complexity-of-hyp.-space-and-error-trend}
+\end{figure}
+
+
+
+\subsubsection{Rademacher Complexity}
+Another to measure the complexity is using Rademacher complexity.
+Radermacher is a Germany mathematician.
 
 
 
