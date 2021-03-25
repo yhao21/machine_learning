@@ -1181,6 +1181,154 @@ Another to measure the complexity is using Rademacher complexity.
 Radermacher is a Germany mathematician.
 
 
+Given sample space $ \mathcal S  = (x_1,y_1),\cdots,(x_{m},y_{m})$,
+
+$ y_{i} \in \left\{ -1, +1 \right\}  $, $ y $ is label.\\
+$ h: X \longmapsto \left\{  - 1,  + 1 \right\}  $\\
+$ \widehat{err_{D}(h)} = \frac{1}{m}\sum\limits_{i = 1} ^m I	 $\\
+
+Since indicator I can be either 0 or 1, we can rewrite it as
+\begin{equation*}
+I = \frac{1 - y_{i}h(x_{i})}{2}
+\end{equation*}
+
+
+\newpage
+Let me show you why it make sense. Remember, $ h(x_{i}) $ is the prediction,
+$ h_{x_{i}} \in \left\{  - 1,  + 1 \right\}  $.
+
+If true label $ y_{i} = 1 $:\\
+\begin{align*}
+I = \frac{1 - h(x_{i})}{2} \quad
+\text{ \begin{cases}
+if $ h(x_{i}) = 1 $,$ h(x_{i}) = y_{i} $, $ I = \frac{1 - 1}{2} = 0 $\\
+if $ h(x_{i}) = -1 $,$ h(x_{i}) \ne y_{i} $, $ I = \frac{1 - (-1)}{2} = 1 $\\
+\end{cases} }
+\end{align*}
+
+
+If true label $ y_{i} = -1 $:\\
+\begin{align*}
+I = \frac{1 + h(x_{i})}{2}\quad
+\text{ 
+\begin{cases}
+if $ h(x_{i}) = 1, h(x_{i}) \ne y_{i}, I = \frac{1 + 1}{2} = 1 $\\
+if $ h(x_{i}) = -1, h(x_{i}) = y_{i}, I = \frac{1 - 1}{2} = 0 $
+\end{cases} }
+\end{align*}
+
+
+It says, $ I = 
+\begin{cases}
+1 \quad \text{ if } h(x_{i}) \ne y_{i}\\
+0 \quad o.w.
+\end{cases}$
+
+It is exactly the same thing! Genius!
+
+
+So we can rewrite the training error as the following,
+
+\begin{align*}
+\widehat{err_{D}(h)} &= \frac{1}{m}\sum\limits_{i = 1} ^m I\\
+ &= \frac{1}{m}\sum\limits_{i = 1} ^m \frac{1 - y_{i}h(x_{i})}{2}	\\
+ &= \frac{1}{m}\sum\limits_{i = 1} ^m \frac{1}{2}(1 - y_{i}h(x_{i}))\\
+ &= \frac{1}{m}\sum\limits_{i} \frac{1}{2}  -  \frac{1}{2m}\sum\limits_{i}
+ y_{i}h(x_{i})\\
+ &= \frac{1}{2} - \frac{1}{2m}\sum\limits_{i = 1} ^m y_{i}h(x_{i})	
+\end{align*}
+
+
+Now, we are using the {\underline {average of}} $ y_{i}h(x_{i}) $ to measure
+how good a hypothesis $ h $ is.
+Since
+\begin{equation*}
+\widehat{err_{D}(h)} = \frac{1}{2} - \frac{1}{2} \frac{1}{m}
+\sum\limits_{i = 1} ^m y_{i}h(x_{i})
+\end{equation*}
+
+Our optimization problem becomes this,
+\begin{equation*}
+\argmin \widehat{err_{D}(h)} \Longrightarrow \argmax_{h \in \mathcal{H}}
+\frac{1}{m} \sum\limits_{i = 1} ^m y_{i}h(x_{i})
+\end{equation*}
+
+
+================================\\
+Since in real world data the label $ y_{i} $ in $ (x_{i},y_{i}) $ can be
+affected by random noise, $ y_{i} $ in $ (x_{i},y_{i}) $ no longer be the
+true label.
+How do we deal with this problem?
+
+Let $ \sigma_{i} $ be an assumed label (a RV), 
+
+\begin{equation*}
+\sigma _{i} = 
+\begin{cases}
+1 \quad \text{ with } prob. = \frac{1}{2}\\
+-1 \quad \text{ with } prob. = \frac{1}{2}
+\end{cases}
+\end{equation*}
+
+
+Then we can rewrite the problem as,
+\begin{equation}
+\sup_{\substack{ h \in \mathcal{H} }} \frac{1}{m}\sum\limits_{i =1} ^m
+\sigma _{i}h(x_{i})
+\end{equation}
+
+Here we use SUP rather MAX because $ \mathcal{H} $ is {\underline {infinite}},
+it is possible that we cannot find the maximum.
+
+Now we take expectation for equation (25) w.r.t. $ \sigma  $
+\begin{equation}
+R = E_{\sigma }\left( \sup_{\substack{ h \in \mathcal{H} }}
+\frac{1}{m} \sum\limits_{i = 1} ^m \sigma _{i}h(x_{i})	\right) 
+\end{equation}
+where $ R \in [0,1] $. Here, we use $ R $ to measure the complexity of 
+$ \mathcal{H} $. 
+
+If $ \left\lvert \mathcal{H} \right\rvert =1  $ then $ R = 0 $.\\
+If $ \left\lvert \mathcal{H} \right\rvert =2^{m}  $
+and $ \mathcal S $ can be shattered by $ \mathcal{H} $
+then $ R = 1 $.\\
+
+So, $ R $ would be closed to 1 if $ \mathcal{H} $ is very complicated.
+
+================================\\
+To see why R = 0 if $ \left\lvert \mathcal{H} \right\rvert = 1 $,
+
+If $ \left\lvert \mathcal{H} \right\rvert =1 $ we no longer have SUP
+\begin{align*}
+R &= E_{\sigma }\left( \frac{1}{m}\sum\limits_{i = 1} ^m \sigma _{i}h(x_{i})
+\right) \\
+ &= \frac{1}{m}\sum\limits_{i} E_{\sigma }\sigma _{i}h(x_{i}),
+ \quad  \sigma _{i} = 
+\begin{cases}
+1 \text{ with } prob. = \frac{1}{2}\\
+-1 \text{ with } prob. = \frac{1}{2}
+\end{cases}\\
+\end{align*}
+
+Hence,
+\begin{align*}
+E_{\sigma }\sigma _{i}h(x_{i}) &= 
+\frac{1}{2}\cdot (1)\cdot h(x_{i}) + \frac{1}{2}\cdot (-1)\cdot h(x_{i})\\
+ &= \frac{1}{2}h(x_{i}) - \frac{1}{2}h(x_{i})\\
+ &= 0
+\end{align*}
+
+So, $ R = 0 $
+================================\\
+If $ \left\lvert \mathcal{H} \right\rvert = 2^{m} $, and $ \mathcal S $
+can be shattered by $ \mathcal{H} $, then there would be one hypothesis that
+make $ h(x_{i}) = \sigma _{i} $. This says that one hypothesis makes
+$ R = 1 $ which is the maximum because all predictions are correct.
+
+It makes sense because when we have {\underline {infinite}} number of
+hypothesis, there would be {\underline {one}} who can fit all values.
+
+
 
 
 
