@@ -1616,8 +1616,12 @@ Hence we can rewrite equation(31),
 \end{cases}
 \end{equation*}
 
-Hence, we can not rewrite equation(29),
-\begin{align*}
+Hence, we can now rewrite equation(29),
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+
+\begin{align}
 \mathbb{E}_{Z}(\Phi (Z)) &= \mathbb{E}_{Z}\left[ 
 \sup_{\substack{ f \in F }} \left( 
 E(f) -  \widehat{E}_{Z}(f)\right) 
@@ -1662,9 +1666,290 @@ E(f) -  \widehat{E}_{Z}(f)\right)
 				f(z_{i})
 \right) \\
  &= 2R_{m}(F)
+\end{align}
+
+
+
+
+}%
+}\\
+
+
+Note, empirical Rademacher Complexity is 
+\begin{equation*}
+ \widehat{R}_{Z}(F) = \mathbb{E}_{\bm{\sigma}}
+\left( 
+				\sup_{\substack{ f }}\frac{1}{m}\sum\limits_{i} \sigma _{i}
+				f(z_{i})
+\right) 
+\end{equation*}
+
+And the expected RC is this
+\begin{equation*}
+R_{m}(F) = \mathbb{E}_{Z}
+\left( 
+				 \widehat{R}_{Z}(F)
+\right) 
+=
+\mathbb{E}_{Z,\bm{\sigma} }
+\left( 
+				\sup_{\substack{ f }}\frac{1}{m}\sum\limits_{i} \sigma _{i}
+				f(z_{i})
+\right) 
+\end{equation*}
+
+
+Hence, the first part in equation(37) is definitely an expected
+RC, $ R_{m}(F) $. 
+
+What about the second part?
+We know
+\begin{equation*}
+\sigma_{i} = 
+\begin{cases}
+1 \quad \text{ with } prob. = \frac{1}{2}\\
+-1 \quad \text{ with } prob. =  \frac{1}{2}.
+\end{cases}
+\end{equation*}
+
+So, $  - \sigma_{i} $ and $ \sigma $ are the same thing. The have the 
+same distribution, and do not affect the results.
+Hence, the second part is also a RC, $ R_{m}(F) $.
+
+And we have the result:
+\begin{equation}
+\mathbb{E}_{Z}(\Phi(Z)) \le 2R_{m}(F)
+\end{equation}
+
+
+Recall, 
+$
+\Phi(Z) = \sup_{\substack{ f }}
+\left[ 
+				E(f) -  \widehat{E}_{Z}(f)
+\right] 
+$
+
+We have now proved 
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+\begin{equation}
+E(f(z)) \le \mathbb{E}_{Z}(f(z)) + 2R_{m}(F) + O
+\left( 
+				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
+\right) , \quad
+O(\cdot )=
+				\sqrt { \frac{\ln \frac{1}{\delta}}{2m}}
+\end{equation}
+
+or we can write in this way,
+
+\begin{equation}
+E(f(z)) \le \frac{1}{m}\sum\limits_{i = 1} ^m f(z_{i}) + 2R_{m}(F)+O
+\left( 
+				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
+\right) 
+\end{equation}
+
+
+}%
+}\\
+
+
+\newpage
+
+
+Recall 
+\begin{align*}
+err_{D}(h) &\le    \widehat{err}_{D}(h) + \cdots\\
+\text{where, } err_{D}(h)  &= E(I), \text{ true error }\\
+ \widehat{err}_{D}(h) &=  \widehat{E}_{Z}(I), \text{ empirical error }
+\end{align*}
+where 
+$ 
+I = 
+\begin{cases}
+1 \quad \text{ if } h(x_{i}) \ne y_{i}\\
+0 \quad \text{ o.w. }
+\end{cases}
+$
+
+Then we have the following theorem
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+\begin{thm}
+\end{thm}
+
+For hyp. space $ \mathcal{H}: X \rightarrow \left\{ -1, +1 \right\}  $,
+given sample $ \mathcal S = \left\{ x_1,x_2,\cdots,x_{m} \right\}  $
+where $ x_{i}\sim D, iid, x_{i} \in X $, 
+
+$ \forall h \in \mathcal{H}, $ with $ prob. \ge 1 - \delta $ we have:
+
+\begin{align}
+err_{D}(h) &\le  \widehat{err}_{D}(h) + R_{m}(\mathcal{H}) + O
+\left( 
+				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
+\right), \quad
+O(\cdot ) = \sqrt { \frac{\ln \frac{1}{\delta}}{2m}}\\
+err_{D}(h) & \le   \widehat{err}_{D}(h) +  \widehat{R}_{\mathcal S}
+(\mathcal{H}) + O
+\left( 
+				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
+\right), O(\cdot ) = 
+3 \sqrt { \frac{\ln \frac{2}{\delta}}{2m}}
+\end{align}
+
+
+}%
+}\\
+
+
+
+
+{\underline {Proof:}}
+
+For $ \mathcal{H} $, define a new sample $ Z = X  \times 
+\left\{  - 1, + 1 \right\} $, then hyp. $ h(\cdot ) $ in $\mathcal{H} $
+becomes
+\begin{equation*}
+l_{h}(z) = l_{h}(x,y) = I = 
+\begin{cases}
+1 \quad \text{ if } h(x_{i}) \ne y_{i}\\
+0 \quad \text{ o.w. }
+\end{cases}
+\end{equation*}
+
+
+Hence, we transfer $ \mathcal{H} $ of $ \left\{  - 1, 1 \right\}  $
+to a function space 
+$ 
+\mathscr{L}_{\mathcal{H}} = 
+\left\{
+				l_{h}: h \in \mathcal{H}
+\right\} ,\quad
+\mathscr{L}_{\mathcal{H}} \in [0,1]
+$
+
+And from the definition of RC, we can write
+\begin{align*}
+ \widehat{R}_{Z}(\mathscr{L}_{\mathcal{H}})  &= 
+\mathbb{E}_{\bm{\sigma}}
+\left( 
+				\sup_{\substack{ l_{h} \in \mathscr{L}_{\mathcal{H}} }}
+				\frac{1}{m}\sum\limits_{i = 1} ^m \sigma_{i}l_{h}(x_{i},y_{i})
+\right) ,\text{ where } \sigma_{i} = 
+\begin{cases}
+1 \quad \text{ with } prob. = \frac{1}{2}\\
+ - 1 \quad \text{ with }prob. = \frac{1}{2}
+\end{cases}\\
+ &= \mathbb{E}_{\bm{\sigma}}
+ \left( 
+				 \sup_{\substack{ h \in \mathcal{H} }}\sum\limits_{i = 1} ^m
+				 \sigma_{i} \frac{1 - y_{i}h(x_{i})}{2}
+ \right) \\
+ &= \frac{1}{2} \mathbb{E}_{\bm{\sigma}}
+\left( 
+				\frac{1}{m}\sum\limits_{i} \sigma_{i} + 
+				\sup_{\substack{ h \in \mathcal{H} }} \frac{1}{m}
+				\sum\limits_{i} ( - y_{i}\sigma_{i}h(x_{i}))	
+\right) \\
+ &= 0 + \frac{1}{2} \mathbb{E}_{\bm{\sigma}}
+\left( 
+				\sup_{\substack{ h \in \mathcal{H} }} \frac{1}{m} 
+				\sum\limits_{i} ( - y_{i}\sigma_{i}h(x_{i}))
+\right)\\
+ &= \frac{1}{2} \mathbb{E}_{\bm{\sigma}}
+ \left( 
+				 \sup_{\substack{ h \in \mathcal{H} }}\frac{1}{m}
+				 \sum\limits_{i} (\sigma_{i}h(x_{i}))	
+ \right) \\
+ &= \frac{1}{2}  \widehat{R}_{\mathcal S}(\mathcal{H})
 \end{align*}
 
 
+Remember,
+\begin{equation*}
+\sigma_{i} = 
+\begin{cases}
+1 \quad \text{ with } prob. = \frac{1}{2}\\
+ - 1 \quad \text{ with }prob. = \frac{1}{2}
+\end{cases}
+\end{equation*}
+
+So, $ \mathbb{E}(\sigma_{i}) = 0 $, and then
+$ \frac{1}{2}\mathbb{E}_{\bm{\sigma}}
+\left( 
+				\frac{1}{m}\sum\limits_{i} \sigma_{i}
+\right) =0
+$
+
+Also, $ y_{i} $ stands for the true label, and
+\begin{equation*}
+y_{i} = 
+\begin{cases}
+1\\
+-1
+\end{cases}
+\end{equation*}
+
+$  - y_{i} \sigma_{i} $ and $ \sigma_{i} $ have the same distribution.
+So, we can replace $  - y_{i}\sigma_{i} $ with $ \sigma_{i} $.
+
+{\underline {They are exactly the same thing!!}}
+
+So far, we have 
+\begin{equation*}
+ \widehat{R}_{Z}(\mathscr{L}_{\mathcal{H}}) = \frac{1}{2}
+  \widehat{R}_{\mathcal S}(\mathcal{H})
+\end{equation*}
+take expectation we obtain the expected Rademacher Complexity,
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+\begin{equation}
+R_{m}(\mathscr{L}_{\mathcal{H}}) = \frac{1}{2}R_{m}(\mathcal{H})
+\end{equation}
+}%
+}\\
+
+
+
+Recall from the theorem,
+\begin{equation*}
+E(f(x_{i})) \le  \widehat{E}_{\mathcal S}(f(x_{i})) + 2R_{m}(F) + O
+\left( 
+				\sqrt { \frac{\ln  \frac{1}{\delta}}{m}}
+\right) 
+\end{equation*}
+In our case, 
+\begin{align}
+E(f(x_{i})) &\text{ stands for } err_{D}(h)\\
+ \widehat{E}_{\mathcal S}(f(x_{i})) &\text{ stands for }
+ \widehat{err}_{D}(h)\\
+F & \text{ stands for } \mathscr{L}_{\mathcal{H}}
+\end{align}
+
+Hence we can write this,
+\begin{equation*}
+2R_{m}(F) = 2R_{m}(\mathscr{L}_{\mathcal{H}}) = 2  \times \frac{1}{2}
+R_{m}(\mathcal{H}) = R_{m}(\mathcal{H})
+\end{equation*}
+So, we have proved the result:
+\begin{align*}
+err_{D}(h) & \le  \widehat{err}_{D}(h) + R_{m}(\mathcal{H}) + O
+\left( 
+				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
+\right) \\
+\text{ or }\\
+err_{D}(h) & \le  \widehat{err}_{D}(h) +  \widehat{R}_{\mathcal S}
+(\mathcal{H}) + O
+\left( 
+				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
+\right) 
+\end{align*}
 
 
 
