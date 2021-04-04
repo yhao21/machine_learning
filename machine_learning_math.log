@@ -1,24 +1,24 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.14)  23 MAR 2021 20:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.31)  3 APR 2021 22:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **machine_learning_math.tex
 (./machine_learning_math.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-01-09> xparse <2020-03-03>
+L3 programming layer <2021-02-18>
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count177
-\c@section=\count178
-\c@subsection=\count179
-\c@subsubsection=\count180
-\c@paragraph=\count181
-\c@subparagraph=\count182
-\c@figure=\count183
-\c@table=\count184
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -43,13 +43,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count185
+\inf@bad=\count187
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count186
-\leftroot@=\count187
+\uproot@=\count188
+\leftroot@=\count189
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count188
-\DOTSCASE@=\count189
+\classnum@=\count190
+\DOTSCASE@=\count191
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -58,15 +58,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count190
-\c@MaxMatrixCols=\count191
+\macc@depth=\count192
+\c@MaxMatrixCols=\count193
 \dotsspace@=\muskip16
-\c@parentequation=\count192
-\dspbrk@lvl=\count193
+\c@parentequation=\count194
+\dspbrk@lvl=\count195
 \tag@help=\toks16
-\row@=\count194
-\column@=\count195
-\maxfields@=\count196
+\row@=\count196
+\column@=\count197
+\maxfields@=\count198
 \andhelp@=\toks17
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
@@ -81,6 +81,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )
+\c@thm=\count199
+
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -120,9 +122,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count197
-\Gm@cntv=\count198
-\c@Gm@tempcnt=\count199
+\Gm@cnth=\count266
+\Gm@cntv=\count267
+\c@Gm@tempcnt=\count268
 \Gm@bindingoffset=\dimen148
 \Gm@wd@mp=\dimen149
 \Gm@odd@mp=\dimen150
@@ -171,12 +173,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen165
 \cmidrulekern=\dimen166
 \defaultaddspace=\dimen167
-\@cmidla=\count266
-\@cmidlb=\count267
+\@cmidla=\count269
+\@cmidlb=\count270
 \@aboverulesep=\dimen168
 \@belowrulesep=\dimen169
-\@thisruleclass=\count268
-\@lastruleclass=\count269
+\@thisruleclass=\count271
+\@lastruleclass=\count272
 \@thisrulewidth=\dimen170
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/caption.sty
@@ -193,13 +195,13 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen177
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count270
-\c@continuedfloat=\count271
+\c@caption@flags=\count273
+\c@continuedfloat=\count274
 Package caption Info: threeparttable package is loaded.
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count272
+\c@float@type=\count275
 \float@exts=\toks22
 \float@box=\box50
 \@float@everytoks=\toks23
@@ -213,15 +215,15 @@ Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count273
-\calc@Bcount=\count274
+\calc@Acount=\count276
+\calc@Bcount=\count277
 \calc@Adimen=\dimen178
 \calc@Bdimen=\dimen179
 \calc@Askip=\skip52
 \calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count275
+\calc@Ccount=\count278
 \calc@Cskip=\skip54
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
@@ -231,7 +233,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pdfpages/pdfpages.sty
-Package: pdfpages 2021/01/09 v0.5r Insert pages of external PDF documents (AM)
+Package: pdfpages 2021/03/06 v0.5t Insert pages of external PDF documents (AM)
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
@@ -257,16 +259,17 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ))
 \AM@pagewidth=\dimen182
 \AM@pageheight=\dimen183
+\AM@fboxrule=\dimen184
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pdfpages/pppdftex.def
-File: pppdftex.def 2021/01/09 v0.5r Pdfpages driver for pdfTeX (AM)
+File: pppdftex.def 2021/03/06 v0.5t Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count276
+\pdfpages@includegraphics@status=\count279
 \AM@pagebox=\box52
 \AM@global@opts=\toks24
-\AM@pagecnt=\count277
+\AM@pagecnt=\count280
 \AM@toc@title=\toks25
-\c@AM@survey=\count278
+\c@AM@survey=\count281
 \AM@templatesizebox=\box53
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/transparent/transparent.sty
@@ -277,27 +280,27 @@ Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2021-01-09 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count279
+File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count282
 \l__pdf_internal_box=\box54
 )
 (./machine_learning_math.aux)
 \openout1 = `machine_learning_math.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -335,16 +338,16 @@ LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count280
-\scratchdimen=\dimen184
+\scratchcounter=\count283
+\scratchdimen=\dimen185
 \scratchbox=\box55
-\nofMPsegments=\count281
-\nofMParguments=\count282
+\nofMPsegments=\count284
+\nofMParguments=\count285
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count283
-\MPscratchDim=\dimen185
-\MPnumerator=\count284
-\makeMPintoPDFobject=\count285
+\MPscratchCnt=\count286
+\MPscratchDim=\dimen186
+\MPnumerator=\count287
+\makeMPintoPDFobject=\count288
 \everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -367,19 +370,19 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 38
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 41
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -387,47 +390,47 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 48--50
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--54
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--83
+Underfull \hbox (badness 10000) in paragraph at lines 83--86
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
@@ -457,7 +460,7 @@ Package pdftex.def Info: ./figures//ml-process.pdf , page4 used on input line 6
 9.
 (pdftex.def)             Requested size: 469.75502pt x 234.88051pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
@@ -474,12 +477,12 @@ ple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures//ml-process.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 147--149
+Underfull \hbox (badness 10000) in paragraph at lines 150--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
@@ -491,7 +494,7 @@ Package pdftex.def Info: ./figures//threshold.pdf , page1 used on input line 56
 .
 (pdftex.def)             Requested size: 469.75502pt x 131.67505pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 179--181
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
@@ -573,92 +576,305 @@ Package pdftex.def Info: ./figures//general-case.pdf , page2 used on input line
 
 pdfTeX warning: pdflatex (file ./figures//general-case.pdf): PDF inclusion: mul
 tiple pdfs with page group included in a single page
->] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 303--305
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 315--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
-
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 280--316
+[] 
  []
 
 
-Overfull \hbox (0.96428pt too wide) in paragraph at lines 332--337
+Underfull \hbox (badness 10000) in paragraph at lines 280--316
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 336--338
+
+ []
+
+[9]
+Overfull \hbox (0.96428pt too wide) in paragraph at lines 344--349
 []\OT1/cmr/m/n/12 The num-ber of bits you need would be $\OML/cmm/m/it/12 log[]
  []$\OT1/cmr/m/n/12 , where $[]$ stands for the $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+Underfull \hbox (badness 10000) in paragraph at lines 350--351
 
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 347--357
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--369
 
  []
 
-[10] [11] (./figures/same-prediction.pdf_tex
-<./figures//same-prediction.pdf, id=66, page=1, 380.42863pt x 47.34288pt>
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 371--394
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--394
+
+ []
+
+[10] [11] [12] (./figures/same-prediction.pdf_tex
+<./figures//same-prediction.pdf, id=69, page=1, 380.42863pt x 47.34288pt>
 File: ./figures//same-prediction.pdf Graphic file (type pdf)
 <use ./figures//same-prediction.pdf, page 1>
 Package pdftex.def Info: ./figures//same-prediction.pdf , page1 used on input l
 ine 56.
 (pdftex.def)             Requested size: 469.75502pt x 58.4618pt.
-) (./figures/different-hyp..pdf_tex
-<./figures//different-hyp..pdf, id=67, page=1, 301.65883pt x 124.37518pt>
+)
+(./figures/different-hyp..pdf_tex
+<./figures//different-hyp..pdf, id=70, page=1, 301.65883pt x 124.37518pt>
 File: ./figures//different-hyp..pdf Graphic file (type pdf)
 <use ./figures//different-hyp..pdf, page 1>
 Package pdftex.def Info: ./figures//different-hyp..pdf , page1 used on input li
 ne 56.
 (pdftex.def)             Requested size: 469.75502pt x 193.68289pt.
-) [12 <./figures//same-prediction.pdf>] [13 <./figures//different-hyp..pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 517--519
+) [13 <./figures//same-prediction.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 535--537
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 520--535
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 539--556
 [] 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 547--564
+Underfull \hbox (badness 10000) in paragraph at lines 539--556
+
+ []
+
+[14 <./figures//different-hyp..pdf>]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 570--587
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 547--564
+Underfull \hbox (badness 10000) in paragraph at lines 570--587
 
  []
 
-[14] [15] (./machine_learning_math.aux)
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 604--606
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+ []
 
- ) 
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 607--620
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 607--620
+
+ []
+
+[16] (./figures/shattering-example.pdf_tex
+<./figures//shattering-example.pdf, id=88, page=1, 502.50151pt x 309.5992pt>
+File: ./figures//shattering-example.pdf Graphic file (type pdf)
+<use ./figures//shattering-example.pdf, page 1>
+Package pdftex.def Info: ./figures//shattering-example.pdf , page1 used on inpu
+t line 56.
+(pdftex.def)             Requested size: 469.75502pt x 289.42181pt.
+<./figures//shattering-example.pdf, id=89, page=2, 502.50151pt x 309.5992pt>
+File: ./figures//shattering-example.pdf Graphic file (type pdf)
+<use ./figures//shattering-example.pdf, page 2>
+Package pdftex.def Info: ./figures//shattering-example.pdf , page2 used on inpu
+t line 60.
+(pdftex.def)             Requested size: 469.75502pt x 289.42181pt.
+<./figures//shattering-example.pdf, id=90, page=3, 502.50151pt x 309.5992pt>
+File: ./figures//shattering-example.pdf Graphic file (type pdf)
+<use ./figures//shattering-example.pdf, page 3>
+Package pdftex.def Info: ./figures//shattering-example.pdf , page3 used on inpu
+t line 69.
+(pdftex.def)             Requested size: 469.75502pt x 289.42181pt.
+<./figures//shattering-example.pdf, id=91, page=4, 502.50151pt x 309.5992pt>
+File: ./figures//shattering-example.pdf Graphic file (type pdf)
+<use ./figures//shattering-example.pdf, page 4>
+Package pdftex.def Info: ./figures//shattering-example.pdf , page4 used on inpu
+t line 74.
+(pdftex.def)             Requested size: 469.75502pt x 289.42181pt.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 633--636
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 637--650
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 637--650
+
+ []
+
+[17 <./figures//shattering-example.pdf> <./figures//shattering-example.pdf
+
+pdfTeX warning: pdflatex (file ./figures//shattering-example.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+> <./figures//shattering-example.pdf
+
+pdfTeX warning: pdflatex (file ./figures//shattering-example.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+> <./figures//shattering-example.pdf
+
+pdfTeX warning: pdflatex (file ./figures//shattering-example.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+>] (./figures/linear-threshold-function.pdf_tex
+<./figures//linear-threshold-function.pdf, id=97, page=1, 214.0084pt x 96.47105
+pt>
+File: ./figures//linear-threshold-function.pdf Graphic file (type pdf)
+<use ./figures//linear-threshold-function.pdf, page 1>
+Package pdftex.def Info: ./figures//linear-threshold-function.pdf , page1 used 
+on input line 56.
+(pdftex.def)             Requested size: 469.75502pt x 211.76443pt.
+) [18 <./figures//linear-threshold-function.pdf>] (./figures/ltf-go-through-the
+-origin.pdf_tex
+<./figures//ltf-go-through-the-origin.pdf, id=103, page=1, 119.16957pt x 54.398
+03pt>
+File: ./figures//ltf-go-through-the-origin.pdf Graphic file (type pdf)
+<use ./figures//ltf-go-through-the-origin.pdf, page 1>
+Package pdftex.def Info: ./figures//ltf-go-through-the-origin.pdf , page1 used 
+on input line 56.
+(pdftex.def)             Requested size: 469.75502pt x 214.45474pt.
+) [19 <./figures//ltf-go-through-the-origin.pdf>]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 697--721
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 697--721
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 727--743
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--743
+
+ []
+
+[20] [21]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 839--856
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 839--856
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 882--884
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 885--942
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 885--942
+
+ []
+
+[23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1047
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 1048--1097
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1097
+
+ []
+
+[26]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 1143--1168
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1168
+
+ []
+
+(./figures/complexity-of-hyp.-space-and-error-trend.pdf_tex
+<./figures//complexity-of-hyp.-space-and-error-trend.pdf, id=133, page=1, 392.4
+5332pt x 209.37863pt>
+File: ./figures//complexity-of-hyp.-space-and-error-trend.pdf Graphic file (typ
+e pdf)
+<use ./figures//complexity-of-hyp.-space-and-error-trend.pdf, page 1>
+Package pdftex.def Info: ./figures//complexity-of-hyp.-space-and-error-trend.pd
+f , page1 used on input line 56.
+(pdftex.def)             Requested size: 469.75502pt x 250.62689pt.
+) [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1189
+
+ []
+
+[28 <./figures//complexity-of-hyp.-space-and-error-trend.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1200--1201
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1214--1215
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1233
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1302
+
+ []
+
+[30] [31] (./machine_learning_math.aux) ) 
 Here is how much of TeX's memory you used:
- 5934 strings out of 481199
- 91871 string characters out of 5913700
- 385438 words of memory out of 5000000
- 22746 multiletter control sequences out of 15000+600000
- 419824 words of font info for 90 fonts, out of 8000000 for 9000
+ 5986 strings out of 480909
+ 94003 string characters out of 5905567
+ 398091 words of memory out of 5000000
+ 23075 multiletter control sequences out of 15000+600000
+ 420171 words of font info for 91 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 68i,15n,75p,297b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
-ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on machine_learning_math.pdf (15 pages, 137222 bytes).
+ 68i,18n,75p,319b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on machine_learning_math.pdf (31 pages, 198876 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 190 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

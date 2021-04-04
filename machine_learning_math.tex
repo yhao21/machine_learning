@@ -1198,31 +1198,38 @@ Let me show you why it make sense. Remember, $ h(x_{i}) $ is the prediction,
 $ h_{x_{i}} \in \left\{  - 1,  + 1 \right\}  $.
 
 If true label $ y_{i} = 1 $:\\
-\begin{align*}
+
+\begin{equation*}
 I = \frac{1 - h(x_{i})}{2} \quad
-\text{ \begin{cases}
-if $ h(x_{i}) = 1 $,$ h(x_{i}) = y_{i} $, $ I = \frac{1 - 1}{2} = 0 $\\
-if $ h(x_{i}) = -1 $,$ h(x_{i}) \ne y_{i} $, $ I = \frac{1 - (-1)}{2} = 1 $\\
-\end{cases} }
-\end{align*}
+\begin{cases}
+\text{ if }  h(x_{i}) = 1 , h(x_{i}) = y_{i} ,  I = \frac{1 - 1}{2} = 0 \\
+\text{ if }  h(x_{i}) = -1 , h(x_{i}) \ne y_{i} ,  I = \frac{1 - (-1)}{2} = 1 \\
+\end{cases}
+\end{equation*}
+
+
+
 
 
 If true label $ y_{i} = -1 $:\\
 \begin{align*}
 I = \frac{1 + h(x_{i})}{2}\quad
-\text{ 
 \begin{cases}
-if $ h(x_{i}) = 1, h(x_{i}) \ne y_{i}, I = \frac{1 + 1}{2} = 1 $\\
-if $ h(x_{i}) = -1, h(x_{i}) = y_{i}, I = \frac{1 - 1}{2} = 0 $
-\end{cases} }
+\text{ if }  h(x_{i}) = 1, h(x_{i}) \ne y_{i}, I = \frac{1 + 1}{2} = 1 \\
+\text{ if }  h(x_{i}) = -1, h(x_{i}) = y_{i}, I = \frac{1 - 1}{2} = 0 
+\end{cases}
 \end{align*}
+
+
+
+
 
 
 It says, $ I = 
 \begin{cases}
 1 \quad \text{ if } h(x_{i}) \ne y_{i}\\
 0 \quad o.w.
-\end{cases}$
+\end{cases}$\\
 
 It is exactly the same thing! Genius!
 
@@ -1327,6 +1334,140 @@ $ R = 1 $ which is the maximum because all predictions are correct.
 
 It makes sense because when we have {\underline {infinite}} number of
 hypothesis, there would be {\underline {one}} who can fit all values.
+
+
+
+
+
+\newpage
+\subsection{Empirical and expected RC}
+
+Note, from here, I use $ \mathbb{E} $ for expectation, 
+and $ E $ for the error of prediction.
+
+
+
+Recall, 
+\begin{align*}
+&h: X \rightarrow \left\{  - 1, 1 \right\} , h \in \mathcal{H}\\
+&\mathcal S = \left\{ x_1,x_2,\cdots,x_{m} \right\} \\
+&\mathbb{E}_{\sigma }
+\left[ 
+\sup_{\substack{ h \in \mathcal{H} }}
+\frac{1}{m} \sum\limits_{i = 1} ^m \sigma _{i}h(x_{i})	
+\right]\\ 
+\end{align*}
+
+We want to show: 
+\begin{equation*}
+\forall  h \in \mathcal{H},\quad   \widehat{err}(h) \rightarrow
+err(h)
+\end{equation*}
+
+
+Now, let's have a new setting.
+
+\begin{align*}
+&f: Z \rightarrow {\rm I\!R}, \quad f \in F\\
+&Z = \left\{ z_1, z_2, \cdots, z_{m} \right\} \\
+& \widehat{R}_{Z}(F) = \mathbb{E}_{\bm{\sigma}} 
+\left[
+\sup_{\substack{ f \in F }} \frac{1}{m} \sum\limits_{i = i} ^m	
+\sigma _{i}f(z_{i})
+\right] 
+\end{align*}
+
+where $  \widehat{R}_{Z}(F) $ is called the empirical Rademacher
+complexity, $ F $ stands for the hypothesis space, $ Z $ stands
+for a sample set, and $ f $ stands for a hypothesis.
+
+
+Now we want:\\
+$ \forall  f \in F $:
+\begin{equation*}
+ \widehat{E}_{Z}(f) \rightarrow E(f)
+\end{equation*}
+where $  \widehat{E}_{Z}(f) = \frac{1}{m}
+\sum\limits_{i = 1} ^m f(z_{i})	$, and
+$ E(f) = E_{Z \sim D}(f(z)) $.
+
+
+Since $  \widehat{R}_{Z}(F) $ is defined on a particular sample, 
+but, normally, samples are chosen at random from a distribution.
+So the expected value with respect to the random sample $ Z $
+is called expected Rademacher Complexity (RC).
+
+\begin{equation*}
+R_{m}(F) = \mathbb{E}_{Z \subseteq \mathbb{Z}:|Z|=m}
+\left[ 
+ \widehat{R}_{Z}(F)
+\right] 
+\end{equation*}
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+\begin{thm}
+\end{thm}
+
+For function space maps sample to the real number between 
+0 and 1,  $ F: Z \rightarrow [0,1] $
+
+$ Z = \left\{ z_1,\cdots,z_{m} \right\} \quad z_{i} \sim D, iid$, 
+$ \forall f \in F $ and with $ prob. \ge 1 - \delta  $ we have
+the following results:
+
+
+\begin{align}
+E(f(z)) & \le  \frac{1}{m}\sum\limits_{i = 1} ^m f(z_{i})  + 
+2 R_{m}(F)  + O 
+\left( 
+\sqrt { \frac{\ln \frac{1}{\delta }}{m}} 
+\right), \quad O(\cdot ) = \sqrt { \frac{\ln \frac{1}{\delta }}{2m}}\\
+E(f(z))  & \le  \frac{1}{m} \sum\limits_{i = 1} ^m f(z_{i}) + 
+2  \widehat{R}_{Z}(f)  +  O
+\left( 
+\sqrt { \frac{\ln \frac{1}{\delta }}{m}}
+\right), \quad O(\cdot ) = 3\sqrt { \frac{\ln \frac{2}{\delta }}{2m}}
+\end{align}
+
+}%
+}\\
+
+where $  \widehat{E}_{Z}(f) = 
+\frac{1}{m}\sum\limits_{i = 1} ^m f(z_{i})	 $, stands for empirical
+error and $ E[f(z)] $ stands for the true error.
+
+
+How to prove equation (27)?
+
+The intuition is that we want to find the bound (the max difference)
+between the true error and the empirical error. Hence, let's define
+\begin{equation*}
+\Phi (Z) = \sup_{\substack{ f \in F }} 
+\left( 
+E(f) -  \widehat{E}_{Z}(f)
+\right) 
+\end{equation*}
+
+
+
+Now we claim that the relationship between the true supreme difference
+and the empirical supreme difference is the following,
+
+with $ prob. \ge 1 - \delta  $
+\begin{align*}
+&\Phi (Z) \le \mathbb{E}_{Z}(\Phi (Z))  +  O
+\left( 
+\sqrt { \frac{\ln \frac{1}{\delta }}{m}}
+\right) \\
+& \Phi (Z): \text{ true supreme difference }\\
+& \mathbb{E}_{Z}(\Phi (Z)): \text{ empirical supreme difference }\\
+& \text{$ Z $ is a RV, since the samples are drawn from distribution
+$ D $}
+\end{align*}
+
+
+
 
 
 
