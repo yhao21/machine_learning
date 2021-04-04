@@ -1440,6 +1440,8 @@ error and $ E[f(z)] $ stands for the true error.
 
 How to prove equation (27)?
 
+
+
 The intuition is that we want to find the bound (the max difference)
 between the true error and the empirical error. Hence, let's define
 \begin{equation*}
@@ -1449,7 +1451,7 @@ E(f) -  \widehat{E}_{Z}(f)
 \right) 
 \end{equation*}
 
-
+{\textbf {Step 1}}
 
 Now we claim that the relationship between the true supreme difference
 and the empirical supreme difference is the following,
@@ -1467,6 +1469,200 @@ $ D $}
 \end{align*}
 
 
+How do we know this? 
+
+Since $ f(\cdot ) $ will change at most $ \frac{1}{m} $, and 
+$ E(f) $ is constant, so, the difference 
+$ E(f) -  \widehat{E}_{Z}(f) $ will change at most
+$ \frac{1}{m} $. This means that $ \sup_{\substack{  }}
+\left( 
+E(f) -  \widehat{E}_{Z}(f)
+\right) $
+will change at most $ \frac{1}{m} $. It says that
+\begin{align*}
+\Phi (Z) - \Phi (Z') &\le \frac{1}{m}\\
+\left\lvert 
+\Phi (Z) - \Phi (Z')
+\right\rvert & \le \frac{1}{m}
+\end{align*}
+
+So from McDiarmid inequality, we can write
+\begin{equation*}
+\Phi (Z) \le \mathbb{E}_{Z}(\Phi (Z)) + O
+\left( 
+\sqrt { \frac{\ln \frac{1}{\delta }}{m}}
+\right) 
+\end{equation*}
+
+
+
+
+{\textbf {Step 2}}
+
+
+Since the empirical error, $  \widehat{E}_{Z}(f) $ is based on a
+particular sample $ Z $, it is finite. But the true error, 
+$ E(f) $ is based on all possible samples from the distribution
+$ D $. Hence, $ E(f) $ if infinite. We need to work on this.
+
+The idea is that we {\underline {replace}} $ E(f) $ by another 
+empirical average from a second (imaginary) sample.
+
+
+\begin{align*}
+&\text{ sample we have: } Z = 
+\left\{ z_1,\cdots,z_{m} \right\}, \text{ called real sample }\\
+&\text{ imaginary sample: } Z' = 
+\left\{ z_1',\cdots, z_{m}' \right\}, \text{ called ghost sample }
+\end{align*}
+
+where, $ Z, Z' \sim D, iid $.
+
+So the idea is that we replace $ E(f) $ in 
+$ \Phi (Z) = \sup_{\substack{ f \in F }} = 
+\left( 
+E(f) -  \widehat{E}_{Z}(f)
+\right) $
+by the empirical average from $ Z' $. Hence, we can write
+\begin{align}
+\mathbb{E}_{Z}(\Phi (Z)) &= \mathbb{E}_{Z}
+\left[ 
+\sup_{\substack{ f \in F }}
+\left( 
+E(f) -  \widehat{E}_{Z}(f)
+\right) 
+\right] \\
+& \le \mathbb{E}_{Z, Z'}
+\left[ 
+\sup_{\substack{ f }}
+\left( 
+ \widehat{E}_{Z'}(f) -  \widehat{E}_{Z}(f)
+\right) 
+\right] 
+\end{align}
+
+We are going to prove this relationship!
+
+Since $ z_{i} $ and $ z_{i}' $ are all drawn from $ D $, iid.
+It will not change the result if we {\underline {swap}} them
+between two samples. Hence we do a ``flip-coin" here. If Head,
+we put $ z_{i} $ to $ Z' $ and $ z_{i}' $ to $ Z $; If Tail, we do
+nothing. After this swap process we will receive two new samples
+$ T $ and $ T' $
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+Before swap:
+\begin{align*}
+& Z = \left\{ z_1,z_2,\cdots,z_{m} \right\} \\
+& Z' = \left\{ z_1',z_2',\cdots,z_{m}' \right\} 
+\end{align*}
+
+After swap:
+\begin{align*}
+& T = \left\{ z_1',z_2,\cdots,z_{m} \right\} \\
+& T' = \left\{ z_1,z_2',\cdots,z_{m}' \right\} 
+\end{align*}
+
+
+}%
+}\\
+
+Now we go back to our equation
+\begin{equation*}
+ \widehat{E}_{Z'}(f) -  \widehat{E}_{Z}(f) = 
+ \frac{1}{m}\sum\limits_{i = 1} ^m \left( 
+f(z_{i}') - f(z_{i})
+ \right) 	
+\end{equation*}
+
+
+Since we swap some of the examples(instances), the upper equation
+becomes this
+
+\begin{equation}
+ \widehat{E}_{T'}(f) -  \widehat{E}_{T}(f) = \frac{1}{m}
+ \sum\limits_{i = 1} ^m
+ \begin{cases}
+ f(z'_{i}) - f(z_{i}) \text{ if no swap }\\
+ f(z_{i}) - f(z'_{i}) \text{ if swap }
+ \end{cases}
+\end{equation}
+
+
+To simplify this equation, we introduce and indicator function
+$ \sigma _{i} $ where
+\begin{equation*}
+\sigma _{i} = 
+\begin{cases}
+1 \quad \text{ if no swap }\\
+-1 \quad \text{ if swap }
+\end{cases}
+\end{equation*}
+
+Note, $ \sigma _{i} $ here is not the same as the one we defined 
+previously.
+
+
+Hence we can rewrite equation(31),
+\begin{equation*}
+ \widehat{E}_{T'}(f) -  \widehat{E}_{T}(f) = 
+ \frac{1}{m}\sum\limits_{i = 1} ^m	\sigma _{i}
+(f(z'_{i}) - f(z_{i})), \quad
+\sigma _{i} = 
+\begin{cases}
+1 \quad \text{ if no swap }\\
+-1 \quad \text{ if swap }
+\end{cases}
+\end{equation*}
+
+Hence, we can not rewrite equation(29),
+\begin{align*}
+\mathbb{E}_{Z}(\Phi (Z)) &= \mathbb{E}_{Z}\left[ 
+\sup_{\substack{ f \in F }} \left( 
+E(f) -  \widehat{E}_{Z}(f)\right) 
+\right] \\
+& \le \mathbb{E}_{Z, Z'}\left[ 
+\sup_{\substack{ f }}
+\left( 
+				 \widehat{E}_{Z'}(f) -  \widehat{E}_{Z}(f)
+\right) 
+\right]\\
+ &= \mathbb{E}_{Z,Z',\bm{\sigma} }
+ \left[ 
+				\sup_{\substack{ f }}
+				\left( 
+								\frac{1}{m}\sum\limits_{i = 1} ^m \sigma _{i}
+								f(z'_{i}) - f(z_{i})
+				\right) 
+ \right]\\
+ &= \mathbb{E}_{Z,Z',\bm{\sigma}}
+ \left[ 
+				 \sup_{\substack{ f }}
+				 \left( 
+								 \frac{1}{m}\sum\limits_{i = 1} ^m \sigma_{i}f(z'_{i})
+								  + \frac{1}{m}\sum\limits_{i = 1} ^m ( - \sigma _{i})
+									f(z_{i})
+				 \right) 
+ \right] \\
+& \le \mathbb{E}_{Z,Z',\bm{\sigma}}
+\left[ 
+				\sup_{\substack{ f }}\frac{1}{m}\sum\limits_{i = 1} ^m \sigma _{i}
+				f(z'_{i}) + \sup_{\substack{ f }}\frac{1}{m}\sum\limits_{i = 1} ^m
+				( - \sigma _{i}) f(z_{i})
+\right] \\
+ &= \mathbb{E}_{Z',\bm{\sigma}}
+ \left( 
+				 \sup_{\substack{ f }}\frac{1}{m}\sum\limits_{i} \sigma _{i}
+				 f(z'_{i})
+ \right)  + 
+\mathbb{E}_{Z,\bm{\sigma}}
+\left( 
+				\sup_{\substack{ f }}\frac{1}{m}\sum\limits_{i} ( - \sigma _{i})
+				f(z_{i})
+\right) \\
+ &= 2R_{m}(F)
+\end{align*}
 
 
 
