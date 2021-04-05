@@ -1942,14 +1942,85 @@ So, we have proved the result:
 err_{D}(h) & \le  \widehat{err}_{D}(h) + R_{m}(\mathcal{H}) + O
 \left( 
 				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
-\right) \\
+\right) , \text{ where }
+O(\cdot ) = \sqrt { \frac{\ln \frac{1}{\delta}}{2m}}
+\\
 \text{ or }\\
 err_{D}(h) & \le  \widehat{err}_{D}(h) +  \widehat{R}_{\mathcal S}
 (\mathcal{H}) + O
 \left( 
 				\sqrt { \frac{\ln \frac{1}{\delta}}{m}}
-\right) 
+\right), \text{ where } O(\cdot )
+= 3\sqrt { \frac{\ln \frac{2}{\delta}}{2m}}
 \end{align*}
+
+
+
+So, how do we compute $  \widehat{R}_{\mathcal S}(\mathcal{H}) $?
+
+1. If $ \left\lvert \mathcal{H} \right\rvert < \infty  $:
+\begin{equation*}
+ \widehat{R}_{\mathcal S}(\mathcal{H}) \le 
+\sqrt { \frac{2 \ln \left\lvert \mathcal{H} \right\rvert }{m}}
+\end{equation*}
+
+
+2. If $ \left\lvert \mathcal{H} \right\rvert  = \infty $:
+
+Recall the definition of empirical RC:
+\begin{equation*}
+ \widehat{R}_{\mathcal S} = \mathbb{E}_{\bm{\sigma}}
+ \left[ 
+				\sup_{\substack{ h \in \mathcal{H} }} \frac{1}{m}
+				\sum\limits_{i = 1} ^m \sigma_{i}h(x_{i})	
+ \right] 
+\end{equation*}
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+\begin{thm}
+\end{thm}
+According to Mohri et al., (2012), based on the following three
+previously proved result,
+\begin{align*}
+R_{m}(\mathcal{H}) & \le \sqrt { \frac{2 \ln \Pi_{\mathcal{H}}(m)}{m}}\\
+\Pi_{\mathcal{H}}(m) & \le 
+\left( 
+				\frac{em}{d}
+\right) ^{d}\\
+E(h) & \le  \widehat{E}(h) + R_{m}(\mathcal{H}) + 
+\sqrt { \frac{\ln \frac{1}{\delta}}{2m}}
+\end{align*}
+
+we have the following result:
+
+\begin{equation}
+E(h) \le  \widehat{E}(h) + \sqrt { \frac{2d \ln \frac{em}{m}}{m}}
+ + \sqrt { \frac{\ln \frac{1}{\delta}}{2m}}
+\end{equation}
+
+
+}%
+}\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
