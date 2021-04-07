@@ -197,6 +197,69 @@ saying that we start from a particular state $ s_0 $.
 
 
 
+Then, how do we compute the value function $ V^{\pi} $?
+There are {\underline {two methods}} to do this.
+
+1. Simulate process like Equation(3). This method do not need Markov.
+
+2. Or we can use Markov to do this. 
+Given $ H = \infty  $, $ \gamma < 1 $,
+
+\begin{equation}
+V^{\pi}(s) = r(s, \pi(s)) + \gamma \sum\limits_{s' \in \mathcal S}Pr
+\left( 
+	s'\Bigg|s,\pi(s)	
+\right) V^{\pi}(s')
+\end{equation}
+
+
+Here we assume the policy is deterministic for simplicity. You can 
+relax this assumption.
+The first part $ r(s,\pi(s)) $ stands for the immediate reward,
+and the rest of the equation stands for the discounted sum of 
+the future reward.
+
+Remember, $ Pr \left( s'\Bigg|s,\pi(s) \right)  $ is the probability
+to reach state $ s' $.
+
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+The optimal value function and policy:
+
+\begin{equation*}
+V^{*} = \max_{\substack{\pi\\}} V^{\pi}
+\end{equation*}
+\begin{equation*}
+\pi^{*} = \argmax V^{\pi}
+\end{equation*}
+}%
+}\\
+
+\subsection{Bellman Equation}
+
+\begin{equation}
+V^{*}(s) = \max_{\substack{a\\}} r(s,a) + \gamma 
+\sum\limits_{s' \in \mathcal S} Pr
+\left( 
+	s'\Bigg|s,a
+\right) V^{*}(s')
+\end{equation}
+
+It says that the optimal value funtion start from state $ s $ is equal
+to the max over all action $ a $ which gives you the highest
+discounted sum of reward.
+
+
+If you extend the policy to the end, then you should use argmax.
+
+
+
+\section{Value Iteration}
+
+An algorithm can solve Bellman Equation is called ``Value Iteration".
+
+
 
 
 
