@@ -1,0 +1,497 @@
+
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmin}{arg\,min} % thin space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{arg\,max} % thin space, limits underneath in displays
+\newtheorem{thm}{Theorem}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{indentfirst}
+\setlength{\parindent}{0em}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{setspace}
+\doublespacing
+\usepackage[flushleft]{threeparttable}
+\usepackage{booktabs,caption}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+\def\svgwidth{\columnwidth}
+\import{./figures/}{#1.pdf_tex}
+}
+
+
+
+
+\title{Probability Theory}
+\author{SynFerLo}
+\date{July. 21, 2021}
+
+
+\begin{document}
+\maketitle
+\newpage
+
+
+\section{Terminology}
+
+\subsection{Random variable}
+A Random variable is a {\underline {function}} from a set of outcomes
+to the real line, attaching numbers to outcomes.
+
+
+
+
+
+\subsection{IID}
+Independence: The RVs $ (X_1, X_2,... Xn) $ is said to be independent
+if the occurance of any one, $ X_{i} $, does not influence and is not
+influenced by the occurence of any other RV in the set, $ X_{j}, 
+j \ne i$,.
+
+
+Identical Distribution: The density of RVs	are identical
+\begin{equation*}
+f(x_1; \theta) = f(x_2;\theta) = \cdots = f(x_{n};\theta)
+\end{equation*}
+
+
+
+
+
+
+
+\subsection{Event Space}
+
+{\textbf {Outcomes Set:}} {\textbf {S}}, includes all possible distinct outcomes. 
+For example, the outcome set of casting a 
+dice can be written as $ S = \{1, 2, 3, 4, 5, 6\} $\\
+
+{\textbf {Event space:}} $ \mathfrak{F} $, is a set whose elements are
+the events of interest as well as the related events, those we get by
+combining the events of interest using set theoretic operations, e.g., 
+$  \overline{A},  \overline{B}, A \cap B, A \cup B, ( \overline{A}_{1}
+ \cap  \overline{A}_{2}) $, etc.
+$ \mathfrak{F} $ is a {\underline {subset}} of $ \bm{S} $.
+
+
+
+\begin{equation*}
+\text{ for } A \in \mathfrak{F}, \text{ B } \in \mathfrak{F} \text{ 
+and} A \cap B = \emptyset, \text{ then } \mathbb{P}(A \cup B) = 
+\mathbb{P}(A) + \mathbb{P}(B)
+\end{equation*}
+
+For modeling purpose, we need to broaden the event to include not just
+elementary outcomes but also combinations of them.
+
+
+Two extreme event spaces:
+
+(1)$ \mathfrak{F}_{0} = \left\{ \bm{S}, \emptyset  \right\}  $: the
+{\textbf {trivial event space.}}
+
+(2)$ \mathcal{P}(S) = \left\{ A:A \subset \bm{S} \right\}  $, i.e., 
+the {\textbf {power set}}: the set of all subsets of $ \bm{S} $.
+
+{\textbf {Notice:}} we cannot always use the power set of $ \bm{S} $
+as the appropriate event space, because (1) if $ \bm{S} $ is countable
+and has $ N $ elements, $ \mathcal{P}(\bm{S}) $ has $ 2^{N} $ elements, 
+it contain too many elements; (2) when the outcomes set is uncountable,
+such as
+\begin{equation*}
+\bm{S} = \left\{ x: 0 \le x \le 1, x \in \mathbb{R} \right\} 
+\end{equation*}
+the power set includes subsets which {\underline {cannot}} be considered
+as events and thus cannot be assigned probabilities.
+
+To circumvent these difficulties, we use a field or {\underline {
+$ \sigma $-field}},
+which ensures if A and B are events then any other events which arise
+when we combine these with set theoretic operations are also elements
+of the same event space.
+
+
+{\textbf {Field}}: A collection $ \mathfrak{F} $ of subsets of 
+$ \bm{S} $, is said to be a field if it satisfies the conditions:
+\begin{enumerate}
+\item $ \bm{S} \in \mathfrak{F} $
+\item if $ A \in \mathfrak{F} $ then $  \overline{A} $ also belong to
+		$ \mathfrak{F} $
+\item if $ A,B \in \mathfrak{F} $, then $ (A \cup B) \in \mathfrak{F} $.
+\end{enumerate}
+This means that $ \mathfrak{F} $ is non-empty, closed under
+complementation, finite unions and finite intersections.
+
+
+
+{\textbf {Event:}} is a subset of the outcomes set $ \bm{S} $,
+i.e., if $ A \subset \bm{S}, A \text{  is an event. } $
+
+{\textbf {Special Events:}}
+
+1. Sure event:  whatever the outcome, $ \bm{S} $ occurs. $ \bm{S} $ is
+always a subset of itself, i.e., $ S \subset S $.
+
+2. Impossible event: $ \emptyset  $
+
+3. Any two events A and B are said to be {\textbf {mutually exclusive}} if
+\begin{equation*}
+A \cap  B = \emptyset 
+\end{equation*}
+
+
+4. The events $ A_1, A_2,..., A_{m} $ is said to constitute a {\textbf {
+partition}}
+of $ \bm{S} $ if they are:
+
+(1) mutually exclusive, i.e., $ A_{i} \cap A_{j} = \emptyset, 
+\forall j \ne j, i,j = 1,2,...,m$ and 
+
+(2) exhaustive, i.e., $ \bigcup_{i = 1}^{m} A_{i} = \bm{S} $.
+
+
+
+
+
+
+
+\subsection{$ \sigma $-field}
+A collection $ \mathfrak{F} $ of subsets of $ \bm{S} $, is said to be 
+a $ \sigma $-field if it satisfies the conditions:
+\begin{enumerate}
+\item $ \bm{S} \in \mathfrak{F} $
+\item if $ A \in \mathfrak{F} $, then $  \overline{A} \in \mathfrak{F} $
+\item if $ A_{i}\in \mathfrak{F} $ for $ i = 1,2,...n,... $ the
+		set $ \cup_{i = 1}^{\infty } A_{i} \in \mathfrak{F} $.
+\item from 2 and 3, we can deduce that
+		\begin{equation*}
+		\cap_{i = 1}^{\infty } A_{i}\in \mathfrak{F}, \text{ since }
+		\overline{\cup_{i = 1}^{\infty }A_{i}} = \cap_{i = 1}^{\infty }
+		 \overline{A}_{i}
+		\end{equation*}
+\end{enumerate}
+
+{\textbf {Notice:}} a $ \sigma $-field is non-empty and closed under
+countable unions and intersections.
+
+
+\subsection{Borel $ \sigma $-field}
+Borel field, or Borel $ \sigma $-field, is the most important $ \sigma $ 
+-field defined on the real line $ \mathbb{R} $, denoted by 
+$ \mathcal{B}(\mathbb{R}) $.
+
+
+
+
+\subsection{Cartesian Product}
+Define the notion of the Cartesian product of two sets by $ A  \times B $
+\begin{equation*}
+A  \times  B = \left\{ (x,y): x \in A, y \in B \right\} 
+\end{equation*}
+It is a set of all ordered pairs $ (x,y) $ where $ x \in A $ and 
+$ y \in B $.
+On example is the Cartesian coordinates of the plane, where X is the
+set of points on the x-axis, Y is the set of points on the y-axis,
+and $ X  \times  Y $ is the $ xy $-plane.
+
+
+\begin{figure}[H]
+		\center{\includegraphics[scale =.4 ]  {figures/Cartesian_product.png}}
+\end{figure}
+
+
+
+
+
+
+\subsection{Probability space $ (S, \mathfrak{F}, \mathbb{P}(.)) $}
+
+A {\textbf {probability space }}is a collection of
+\begin{enumerate}
+\item Outcomes set $ S $
+\item Event space $ \mathfrak{F} $, where $ \mathfrak{F} $ is a 
+		$ \sigma $-field of subsets of $ S $.
+\item Probability set function $ \mathbb{P}(.) $
+\end{enumerate}
+
+Notice: the probability function $ \mathbb{P}(.) $ statisfies axioms
+[1]-[3]:
+
+[1]: $ \mathbb{P}(S) = 1 $, for any outcomes set $ S $
+
+[2]: $ \mathbb{P}(A) \ge  0 $, for any event $ A \in \mathbb{F} $
+
+[3]: Countable additivity. For a countable sequence of mutually
+exclusive events, i.e., $ A_{i} \in \mathfrak{F}, i = 1,2,...,n, ... $
+such that $ A_{i} \cap A_{j} = \emptyset \quad \forall i \ne j, i,j = 1,2
+,...,n,...$, then
+\begin{equation*}
+\mathbb{P}(\bigcup_{i = 1}^{\infty }A_{i}) = \sum\limits_{i = 1} ^\infty 
+\mathbb{P}(A_{i})
+\end{equation*}
+
+
+
+
+
+
+\subsection{Sampling Space}
+A sequence of $ n $ trials, denoted by $ \mathcal{G}_{n} = 
+\left\{ \mathcal{A}_{1},\mathcal{A}_{2},...,\mathcal{A}_{n} \right\} $
+where $ \mathcal{A}_{i} $, represents the $ i $th trial of the 
+experiment, associated with the product probability space
+$ (\bm{S}_{(n)}, \mathfrak{F}_{(n)}, \mathbb{P}_{(n)}) $, is said to
+be a sampling space.
+We use $ \mathcal{G}_{n} $ for sampling space.
+
+
+\subsection{Random Trials}
+A sequence of trials $ \mathcal{G}_{n}^{IID} := \left\{ 
+		\mathcal{A}_{1}, \mathcal{A}_{2},...,\mathcal{A}_{n}
+\right\}  $ which is both {\textbf {independent}} and {\textbf {
+identical distributed}}, i.e., 
+\begin{equation*}
+\mathbb{P}_{(n)}(\mathcal{A}_{1} \cap \mathcal{A}_{2}\cap...\cap 
+\mathcal{A}_{k}) = \mathbb{P}(\mathcal{A}_{1})\cdot \mathbb{P}
+(\mathcal{A}_{2})\cdots\mathbb{P}(\mathcal{A}_{k}) \text{ 
+for each $ k = 2,3,...,n $}
+\end{equation*}
+is referred to as a sequence of Random trials.
+
+
+\subsection{Statistical Space}
+It is the combination of {\underline {a}} simple product probability space, and a 
+sequence of Random trials, 
+\begin{equation*}
+		[(\bm{S},\mathfrak{F}, \mathbb{P}(.))^{n}, G_{n}^{IID}]
+\end{equation*}
+
+
+The more general formulation of a {\textbf {statistical space:}}
+\begin{equation*}
+		[(\bm{S}_{(n)}, \mathfrak{F}_{(n)}, \mathbb{P}_{(n)}), 
+		\mathcal{G}_{n}^{IID}]
+\end{equation*}
+where each trial $ \mathcal{A}_{i} $ is associated with a different
+probability space $ \left\{ (S_{i}, \mathfrak{F}_{i}, \mathbb{P}_{i}
+(.))\right\}  $
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Set operation}
+
+\begin{equation*}
+		\overline{(A \cup B)} =  \overline{A} \cap  \overline{B}
+\end{equation*}
+\begin{equation*}
+		\overline{( \overline{A} \cap  \overline{B})} =  \overline{A} \cup  
+		 \overline{B}
+\end{equation*}
+
+{\textbf {Difference:}}
+\begin{equation*}
+A - B = A \cap \overline{B}:=\left\{ x:x \in A \cap  x \notin B \right\} 
+\end{equation*}
+
+{\textbf {Symmetric difference:}}
+\begin{equation*}
+A \Delta B = (A \cap   \overline{B}) \cup ( \overline{A} \cap  B):=
+\left\{ x:x \in A \cup  x \in B \cap  x \notin (A \cap  B) \right\} 
+\end{equation*}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{symmetric-difference}
+    \caption{Symmetric difference}
+    \label{fig:symmetric-difference}
+\end{figure}
+
+
+
+
+
+
+\section{Useful Probability results}
+{\textbf {Them 1:}}
+\begin{equation*}
+\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - 
+\mathbb{P}(A \cap B)
+\end{equation*}
+
+{\textbf {Them 2: Continuity property of the probability set function}}
+
+For $ \left\{ A_{n} \right\}_{n = 1}^{\infty } \in \mathfrak{F}  $, if
+$ \lim_{n \to \infty} A_{n} = A \in \mathfrak{F} $, then
+$ \lim_{n \to \infty}\mathbb{P}(A_{n}) = \mathbb{P}(A) $\\
+
+
+{\textbf {Non-decreasing sequence:}}
+A sequence of events $ \left\{ A_{n} \right\}_{n = 1}^{\infty} $ is
+called non-decreasing if
+\begin{equation*}
+A_1 \subset A_2 \subset \cdots \subset A_{n} \subset ...
+\end{equation*}
+It has a property:
+\begin{equation*}
+\lim_{n \to \infty}A_{n} = \bigcup_{n = 1}^{\infty }A_{n}
+\end{equation*}
+
+
+{\textbf {non-increasing sequence:}}
+\begin{equation*}
+A_1 \supset A_2 \supset \cdots \supset A_{n} ...
+\end{equation*}
+
+\begin{equation*}
+\lim_{n \to \infty}A_{n} = \bigcap_{n = 1}^{\infty }A_{n}
+\end{equation*}
+
+
+{\textbf {Thm 3:}}
+\begin{equation*}
+\mathbb{P}(\bigcap_{k = 1}^{n}A_{k}) \ge 1 - 
+\sum\limits_{k = 1} ^n \mathbb{P}( \overline{A}_{k})	
+\end{equation*}
+where $ A_{k} \in \mathfrak{F}, k = 1,2,...,n $
+
+
+{\textbf {Thm: 4:}}
+\begin{equation*}
+\mathbb{P}(A|B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
+\end{equation*}
+Also, we know
+\begin{equation*}
+\mathbb{P}(A \cap B) = \mathbb{P}(A|B)\mathbb{P}(B) = \mathbb{P}(B|A)
+\mathbb{P}(A)
+\end{equation*}
+Hence, 
+\begin{equation*}
+\mathbb{P}(A|B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} = 
+\frac{\mathbb{P}(A)\mathbb{P}(B|A)}{\mathbb{P}(B)}, \text{ for
+$ \mathbb{P}(B) > 0 $}
+\end{equation*}
+This is called Bayes' formula.
+
+The conditioning probability can be used to determine whether the
+occurance of B alters the probability of occurance of A.
+If not, $ \mathbb{P}(A|B) = \mathbb{P}(A) $, we say,
+they are independent.
+
+
+Hence we have, 
+\begin{equation*}
+\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)
+\end{equation*}
+
+{\textbf {Notice:}} independent and mutually exlusive are not the same.
+The latter one does not involve probability.
+If $ A $ and $ B $ are mutually exlusive, 
+\begin{equation*}
+\mathbb{P}(A \cap B) = 0, \text{ since } A \cap B = \emptyset 
+\end{equation*}
+If $ A $ and $ B $ are independent and $ \mathbb{P}(A) > 0 
+\mathbb{P}(B) > 0$,
+\begin{equation*}
+\mathbb{P}(A \cap B) = \mathbb{P}(A)\cdot \mathbb{P}(B) > 0
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Densities}
+
+\subsection{Bernoulli}
+
+\begin{table}[h!]
+\begin{center}
+\begin{threeparttable}
+\caption{}			
+
+\begin{tabular}{c|cc}
+y & 0 & 1\\
+\hline \\[-1.8ex]
+$ f(y;\theta) $ & $ 1 - \theta $ & $ \theta $
+\end{tabular}
+
+
+\end{threeparttable}
+\end{center}
+\end{table}
+
+$ \mathbb{P}(Y = 1) = \theta $, where $ 0 \le  \theta \le  1 $.
+Bernoulli density:
+\begin{equation*}
+		f(y;\theta) = \theta^{y}(1 - \theta)^{1 - y}, 
+\end{equation*}
+where $ \theta \in [0,1],  y = 0,1$
+
+\subsection{Binomial distribution by Bernoulli}
+18th century
+
+\begin{equation*}
+f(x,\theta) = \binom{n}{x}\theta^{x}(1 - \theta)^{n - x}
+\end{equation*}
+where $ \theta \in [0,1], x = 0,1, n = 1,2,3,... $
+$ \binom{n}{x} = \frac{n!}{(n - x)!x!} $
+
+
+\subsection{Normal Distribution}
+By de Moivre and Laplace in the early 19th century.
+
+\begin{equation*}
+f(x;\theta) = \frac{1}{\sigma \sqrt {2 \pi} }exp \left\{ 
+		 -  \frac{1}{2 \sigma^{2}}(x - \mu)^{2}
+\right\} 
+\end{equation*}
+where $ \theta:= (\mu,\sigma^{2}) \in \mathbb{R} \times \mathbb{R}_{ + },
+x \in \mathbb{R}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
