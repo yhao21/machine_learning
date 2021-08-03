@@ -48,17 +48,216 @@ Instructor: Emma Brunskill (Professor)\\
 Univ: Stanford University\\
 Dept: Computer Science
 
-\section{}
+\section{Introduction}
+
+{\textbf {DEF:}} Reinforcement Learning (RL) is a learning to make
+{\underline {good sequence of decisions}} under uncertainty.
+
+There are four parts get involved:
+\begin{enumerate}
+\item Optimization
+\item Delayed Consequences
+\item Exploration
+\item Generalization
+\end{enumerate}
+
+\subsection{Intuition of RL}
+\begin{figure}[ht]
+    \centering
+    \incfig{how-rl-work}
+    \caption{How RL work}
+    \label{fig:how-rl-work}
+\end{figure}
+
+
+{\textbf {The goal}} of RL is to maximized the expected discounted sum
+of the rewards.
+
+Reward function: $ r(s, a) \rightarrow {\rm I\!R} $
 
 
 
 
+\subsection{Markov Process}
+
+In a dynamic model, 
+\begin{equation*}
+Pr(s_{t}|s_{t - 1}, a_{t - 1}, s_{t - 2}, a_{t - 2},...)
+= Pr(s_{t}|s_{t - 1},a_{t - 1})
+\end{equation*}
+
+It says that the probability of state $ s_{t} $ appears given all
+previous states and actions is equal to the probability of $ s_{t} $
+appears given only last period's state and action, $ s_{t - 1}, 
+a_{t - 1}$.
+
+In Bandits case, it is just equal to $ Pr(s) $,
+
+\begin{equation*}
+Pr(s_{t}|s_{t - 1}, a_{t - 1}, s_{t - 2}, a_{t - 2},...)
+= Pr(s_{t}|s_{t - 1},a_{t - 1}) = Pr(s)
+\end{equation*}
 
 
 
+\subsubsection{Elements in MDP}
+There are five elements in Markov Decision Process (MDP).
+\begin{enumerate}
+\item $ \mathcal S $: state space
+\item $ A $: action space
+\item $ R $: reward space, e.g., $ r(s,a), r(s),r(s,a,s') \in {\rm I\!R} $
+\item $ T $: dynamic model, e.g., $ Pr(s'|s,a) $
+\item $ \gamma	$: discounted factor, $ \gamma \in (0,1) $
+\end{enumerate}
+
+\subsection{Three methods for RL}
+
+There are three main approach in RL:
+
+1. Model based:\\
+Directly estimate and use $ R $ and $ T $.
+
+2. Value based:\\
+Deal with the value function
+\begin{equation}
+V^{\pi} = \mathbb{E}_{s' \sim \pi}
+\left( 
+	\sum\limits_{t = 0} ^\infty \gamma^{t}r_{t}\Bigg|s_{t=0} = s_0	
+\right) 
+\end{equation}
+
+where $ s_0 $ stands for the initial state.
+
+Clearly, equation(1) is the expected discounted sum of reward!
+And $ s'\sim \pi $ indicates that if you follow policy $ \pi $, then
+you will switch to state $ s' $ in the next period.
+
+
+3. Policy based:\\
+\begin{equation*}
+\argmax_{\pi \in \Pi} V^{\pi}
+\end{equation*}
+
+The first two approaches leverage and assume Markovism, but 
+{\underline {Policy based }} approach does not!
+
+The biggest difference between {\underline {value based}} and
+{\underline {policy based}} approach is how we compute the value
+function $ V^{\pi} $.
+
+
+\subsection{Some Key Elements you need}
+
+\subsection{Horizon}
+
+DEF:\\
+Horizon $ H $: number of times/steps/decisions/actions in an episode.
+It can be finite or infinity. Recall what we have learned in 805.
+In Macro, we normally assume infinite horizon.
 
 
 
+\subsection{Return}
+
+DEF: Return $ G_{t} $\\
+Start from $ s_0 $, under some policy $ \pi $, the total discounted
+rewards can be written as
+\begin{equation}
+G_{t = 1}^{\pi} = r_{t = 1} + \gamma r_{t + 1} + \gamma^{2}r_{t + 2}
+ + \cdots + \gamma^{H - 1}r_{H}
+\end{equation}
+
+
+Remember, the MDP is\\
+1. we start from $ s_0 $. \\
+2. take an action $ a_0 $ followed by a particular policy $ \pi $,
+$ \pi: s \rightarrow a $.\\
+3. receive a reward $ r_0 $\\
+4. switch to next state $ s_1 $ according to 
+$ Pr(s'|s_0,a_0) $\\
+5. take another action $ a_1 $.....\\
+....
+
+
+Normally the switch of state follows a particular distribution, so
+we can write the reward and value function formally,
+\begin{align}
+G^{\pi}(s_{0}) &= r_0 + \gamma r_1 + \cdots\\
+V^{\pi}(s_0) &= \mathbb{E}
+\left( G^{\pi}\Bigg|s_0 \right) 
+\end{align}
+
+
+The value function would be the average of the return function 
+$ G^{\pi}(s) $ because of the uncertainty.
+
+
+In the above equations, we use $ G^{\pi}(s_0) $ and $ V^{\pi}(s_0) $
+saying that we start from a particular state $ s_0 $.
+
+
+
+Then, how do we compute the value function $ V^{\pi} $?
+There are {\underline {two methods}} to do this.
+
+1. Simulate process like Equation(3). This method do not need Markov.
+
+2. Or we can use Markov to do this. 
+Given $ H = \infty  $, $ \gamma < 1 $,
+
+\begin{equation}
+V^{\pi}(s) = r(s, \pi(s)) + \gamma \sum\limits_{s' \in \mathcal S}Pr
+\left( 
+	s'\Bigg|s,\pi(s)	
+\right) V^{\pi}(s')
+\end{equation}
+
+
+Here we assume the policy is deterministic for simplicity. You can 
+relax this assumption.
+The first part $ r(s,\pi(s)) $ stands for the immediate reward,
+and the rest of the equation stands for the discounted sum of 
+the future reward.
+
+Remember, $ Pr \left( s'\Bigg|s,\pi(s) \right)  $ is the probability
+to reach state $ s' $.
+
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+The optimal value function and policy:
+
+\begin{equation*}
+V^{*} = \max_{\substack{\pi\\}} V^{\pi}
+\end{equation*}
+\begin{equation*}
+\pi^{*} = \argmax V^{\pi}
+\end{equation*}
+}%
+}\\
+
+\subsection{Bellman Equation}
+
+\begin{equation}
+V^{*}(s) = \max_{\substack{a\\}} r(s,a) + \gamma 
+\sum\limits_{s' \in \mathcal S} Pr
+\left( 
+	s'\Bigg|s,a
+\right) V^{*}(s')
+\end{equation}
+
+It says that the optimal value funtion start from state $ s $ is equal
+to the max over all action $ a $ which gives you the highest
+discounted sum of reward.
+
+
+If you extend the policy to the end, then you should use argmax.
+
+
+
+\section{Value Iteration}
+
+An algorithm can solve Bellman Equation is called ``Value Iteration".
 
 
 

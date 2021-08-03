@@ -1,0 +1,66 @@
+%% Creator: Inkscape 1.0.2 (e86c870879, 2021-01-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'how-rl-work.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{468.63722433bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.31602391)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.36551512,0.2643763){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Real world\end{tabular}}}}%
+    \put(0.32529541,0.01331568){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}agent/machine\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{how-rl-work.pdf}}%
+    \put(0.88214678,0.23379085){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$ a_{t} $\\\end{tabular}}}}%
+    \put(0.89662209,0.17745744){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}actions\end{tabular}}}}%
+    \put(0.06139206,0.29656927){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$ s_{t} $\\\end{tabular}}}}%
+    \put(0.07421719,0.09860644){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$ r_{t} $\\\end{tabular}}}}%
+    \put(-0.00141284,0.25795269){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}observation\\received after\\action($ a_{t} $\\), or called state\end{tabular}}}}%
+    \put(0.07747054,0.05998987){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}reward\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
