@@ -422,13 +422,213 @@ If $ A $ and $ B $ are independent and $ \mathbb{P}(A) > 0
 
 
 
+\section{cdf and pdf}
+
+{\textbf {Density function:}}
+
+It is used to assign probability to event.
+\begin{equation*}
+f_{x}(x):= \mathbb{P}(X = x), \quad \forall  x \in \mathbb{R}_{X}
+\end{equation*}
+For $ x \notin \mathbb{R}_{X}, \quad X^{ - 1}(x) = \emptyset  $ and 
+thus $ f_{x}(x) = 0, \quad \forall x \notin \mathbb{R}_{X} $.
+
+{\textbf {Note:}} $ (X = x) $ is a shorthand notation for 
+$ A_{x} = \left\{ s:X(s) = x \right\}  $.
+
+
+\subsubsection{For a discrete RV}
+\begin{equation*}
+F_{X}(x_{k}) = \mathbb{P}(\left\{ 
+		s:X(s) \le x_{k}
+\right\} ) = \sum\limits_{i = 1} ^k f_{x}(x_{i}), \quad
+for k = 1,2,...,n
+\end{equation*}
+{\textbf {Properties:}}
+\begin{equation*}
+f_{x}(x) \ge 0, \quad \forall x \in \mathbb{R}_{X}
+\end{equation*}
+\begin{equation*}
+\sum\limits_{x_{i} \in \mathbb{R}_{X}} f_{x}(x_{i}) = 1
+\end{equation*}
+\begin{equation*}
+		F_{X}(b) - F_{X}(a) = \sum\limits_{a < x_{i} \le b} f_{x}(x_{i}),
+		\quad a < b, \quad a,b \in \mathbb{R}
+\end{equation*}
+
+Example:\\
+Bernoulli RV
+\begin{equation*}
+f_{x}(1) = \theta \text{ and } f_{x}(0) = (1 - \theta)
+\end{equation*}
+\begin{equation*}
+F_{X}(x) = 
+\begin{cases}
+0, \quad x < 0,\\
+\theta,\quad 0 \le x <1,\\
+1,\quad 1 \le x
+\end{cases}
+\end{equation*}
+
+
+\subsection{Probability Model}
+A probability model is a collection of density functions
+\begin{equation*}
+\Phi = \left\{ f_{x}(x;\bm{\theta}),\bm{\theta} \in \Theta,
+		x \in \mathbb{R}_{X} \right\} 
+\end{equation*}
+
+
+
+
+\section{Parameters and Moments}
+The most efficient way to deal with the unknown parameters $ \theta $ is
+to relate them to the moments of the distribution.
+
+
+\subsection{Moments}
+The {\textbf {moments}} of a distribution are defined in terms of the
+mathematical expectation of certain functions of the random variable
+$ X $, generically denoted by $ h(X) $
+\begin{equation*}
+		E[h(X)] = \int_{ - \infty }^{\infty } h(x)\cdot f(x;\bm{\theta})dx 
+\end{equation*}
+where $ E[h(X)] $ is some function of $ \bm{\theta} $
+\begin{equation*}
+		E[h(X)] = g(\bm{\theta})
+\end{equation*}
+By choosing specific forms of the function $ h(X) $, such as:
+\begin{equation*}
+h(X) = X^{r}, h(X) = \left\lvert X \right\rvert ^{r}, r = 1,2,...,
+h(X) = e^{tx}, h(X) = e^{itx},
+\end{equation*}
+we obtain several functions of the form $ g(\bm{\theta}) $ which involve
+what we call {\textbf {moments}} of $ f(x;\bm{\theta}) $.\\
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+		{\textbf {Note:}} the best way to handle probability models (
+		postulate a statistical model, estimate $ \bm{\theta} $, test
+		hypotheses about these parameters, $ \bm{\theta} $, etc.) is often
+		via the moments of the postulate probability distribution.
+
+}%
+}\\
 
 
 
 
 
 
-\section{Densities}
+
+
+
+
+
+
+\subsection{Mean}
+
+For $ h(X):=X $, where $ X $ takes values in $ \mathbb{R}_{X} $, we can
+write the {\textbf {mean}} of the distribution
+\begin{equation*}
+E(X) = \int_{ - \infty }^{\infty }x \cdot  f_{x}(x;\bm{\theta})dx \quad
+\text{ for continuous variables, }
+\end{equation*}
+
+\begin{equation*}
+E(X) = \sum\limits_{x_{i} \in \mathbb{R}_{X}} x_{i} \cdot f_{x}(x_{i};
+\bm{\theta}) \quad \text{ for discrete random variables. }
+\end{equation*}
+
+\subsubsection{Properties}
+1. $ E(c) = c $
+
+2. $ E(aX_1 + bX_2) = aE(X_1) + bE(X_2) $
+
+
+\subsection{Variance}
+For $ h(X) := [X - E(X)]^{2} $ the integral yields the variance:
+\begin{equation*}
+		Var(X):= E[(X - E(X))^{2}] = \int_{ - \infty }^{\infty }[
+		x - \mu]^{2}f_{x}(x;\bm{\theta})dx 
+\end{equation*}
+In the case of {\textbf {discrete}} RVs the integral is replaced by the
+{\textbf {summation}}.
+
+\begin{equation*}
+Var(X):= \sum\limits_{i = 1}^{n} (X_{i} - \mu)^{2}f_{x}(x;\bm{\theta})
+\end{equation*}
+
+\subsubsection{Properties}
+1. $ Var(c) = 0 $
+
+2. $ Var(aX_1 + bX_2) = a^{2}Var(X_1) + b^{2}Var(X_2) $
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+{\textbf {Bienayme's lemma}}
+If $ X_1,X_2,...,X_{n} $ are Independent Distributed RVs:
+\begin{equation*}
+Var \left( \sum\limits_{i = 1} ^n a_{i}X_{i}	 \right) =
+\sum\limits_{i = 1} ^n a^{2}_{i}Var(X_{i})	
+\end{equation*}
+}%
+}\\
+
+
+\subsection{Standard Deviation}
+Std. Deviation is the square root of the variance.
+
+\begin{equation*}
+		SD(X) = [Var(X)]^{\frac{1}{2}} = \sigma
+\end{equation*}
+
+{\textbf {Note:}}
+When we need to {\underline {render a RV free of its units of
+measurement}}, we divide it by its SD, i.e., we define the standardized
+variable:
+\begin{equation*}
+		X^{*}:=\frac{X}{[Var(X)]^{\frac{1}{2}}}, \text{ where } 
+		Var(X^{*}) = 1
+\end{equation*}
+
+
+
+
+
+\subsection{Chebyshev's inequality}
+Let X be a RV with bounded variance:
+\begin{equation*}
+\mathbb{P}(|X - E(X)| > \varepsilon) \le \frac{Var(X)}{\varepsilon^{2}},
+\text{ for any }\varepsilon > 0
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+\section{Useful Densities}
+
+{\textbf {Note:}} Different density functions can have very similar
+shape with specific parameter. The best way to distinguish between
+them is via {\textbf {index measures based on moments}} which are 
+invariant to scale and location parameter changes (skewness, kurtosis).
+
+For example, in the case of modeling data referring to exam scores it is
+often more realistic to use the {\textbf {Beta}} and {\textbf {not}} the
+{\textbf {Normal}} distribution because all scores can be easily
+expressed in the interval [0,1]; the Normal distribution has support
+$  (- \infty , \infty)  $.
+
+
+
+
 
 \subsection{Bernoulli}
 
@@ -455,6 +655,22 @@ Bernoulli density:
 \end{equation*}
 where $ \theta \in [0,1],  y = 0,1$
 
+
+{\textbf {Mean:}}
+\begin{equation*}
+\mu(\theta):= E(X) = 0\cdot (1 - \theta) + 1\cdot \theta = \theta
+\end{equation*}
+
+
+{\textbf {Variance:}}
+\begin{equation*}
+		Var(X) = E(X - E[X])^{2} = (0 - \theta)^{2}(1 - \theta) + (1 -
+		\theta)^{2}\theta	 = \theta(1 - \theta)
+\end{equation*}
+
+
+
+
 \subsection{Binomial distribution by Bernoulli}
 18th century
 
@@ -476,8 +692,127 @@ f(x;\theta) = \frac{1}{\sigma \sqrt {2 \pi} }exp \left\{
 where $ \theta:= (\mu,\sigma^{2}) \in \mathbb{R} \times \mathbb{R}_{ + },
 x \in \mathbb{R}$
 
+\begin{equation*}
+F_{X}(x;\theta) = \int_{ - \infty }^{x} f_{x}(u)du
+\end{equation*}
+
+{\textbf {Mean:}}
+\begin{align*}
+E(X) &= \int_{ - \infty }^{\infty }\frac{1}{\sigma \sqrt {2 \pi}} exp
+\left[ 
+		 - \frac{(x - \mu)^{2}}{2 \sigma^{2}}
+\right] dx\\
+ &= \int_{ - \infty }^{\infty }\left( 
+		 \frac{\sigma z  + \mu}{\sigma \sqrt {2 \pi}}
+ \right)  \text{ exp } \left[ 
+  -  \frac{z^{2}}{2}
+ \right] (\sigma) dz \\
+  &= \left( 
+			\frac{\sigma}{\sqrt {2 \pi}}
+	\right) \int_{ - \infty }^{\infty } z \text{ exp } \left[ 
+	 - \frac{z^{2}}{2}
+	\right] dz  + \mu \int_{ - \infty }^{\infty } \left( \frac{1}{
+	\sqrt {2 \pi}} 	\right)  \text{ exp } \left[   - \frac{z^{2}}{2} 
+	\right] dz\\
+	&= 0 + \mu\cdot 1\\
+	  &= \mu
+\end{align*}
+where $ z = \left( \frac{x - \mu}{\sigma} \right)  $ or $ x = 
+\sigma z  + \mu$ with $ \frac{dx}{dz} = \sigma $.
 
 
+
+{\textbf {Variance:}}
+$ Var(X) = E(X^{2}) - (E(X))^{2} = \sigma^{2} $, where
+$ E(X^{2}) = \sigma^{2} + \mu^{2} $
+
+
+
+\subsection{Uniform Distribution}
+\subsubsection{Continuous form:}
+\begin{equation*}
+f_{x}(x;\theta) = \frac{1}{b - a},
+\end{equation*}
+where $ \bm{\theta}:=(a,b) \in \mathbb{R}^{2}, a \le x \le b $
+
+
+\begin{equation*}
+F_{X}(x;\theta) = \frac{x - a}{b - a},
+\end{equation*}
+where $ \bm{\theta}:=(a,b) \in \mathbb{R}^{2}, a \le x \le b $\\
+
+
+{\textbf {Mean:}}
+\begin{equation*}
+		\mu(\theta) = E[X] = \int_{\theta_1}^{\theta_2} \frac{x}{(\theta_2
+		 - \theta_1)}dx = \frac{1}{2} \frac{1}{(\theta_2 - \theta_1)}x^{2}
+		 \Bigg|_{\theta_2}^{\theta_1} = \frac{\theta_1  + \theta_2}{2}
+\end{equation*}
+
+\subsubsection{Discrete form:}
+\begin{equation*}
+f_{x}(x;\theta) = \frac{1}{\theta + 1},
+\end{equation*}
+where $ \theta $ is an integer, $ x = 0,1,2,...,\theta $. $ \theta $ is
+the maximum value of $ x $.
+For example, if $ \theta = 9 $, then $ x $ can be 0,1,2,3,4,5,6,7,8,9.
+The density would be
+\begin{equation*}
+f_{x}(x;9) = \frac{1}{9 + 1} = \frac{1}{10} = 0.1
+\end{equation*}
+\begin{equation*}
+F_{X}(x;\theta) = \frac{x + 1}{\theta + 1},
+\end{equation*}
+where $ \theta $ is an integer, $ x = 0,1,2,...,\theta $
+
+
+\begin{figure}[H]
+		\center{\includegraphics[scale =.5 ]  {figures/discrete_uniform_pdf.png}}
+		\includegraphics[scale = .5]  {figures/discrete_uniform_cdf.png}
+\end{figure}
+
+
+
+
+\subsection{Poisson (discrete)}
+\subsubsection{Continuous:}
+\begin{equation*}
+f_{x}(x;\theta) = \frac{e^{ - \theta}\theta^{x}}{x!},
+\end{equation*}
+where $ \theta >0, x = 0,1,2,3,... $
+
+{\textbf {Mean:}}
+\begin{equation*}
+\mu(\theta):=E(X) = \sum\limits_{k = 0} ^\infty k \left( 
+		\frac{e^{ - \theta}\theta^{k}}{k!}
+\right) = \theta e^{ - \theta} \sum\limits_{k = 0} ^\infty 
+\frac{\theta^{k - 1}}{(k - 1)!} = \theta, \text{ since }
+\sum\limits_{k = 0} ^	\infty \frac{\theta^{k - 1}}{(k - 1)!} =e^{\theta}
+\end{equation*}
+
+
+\subsubsection{Discrete}
+\begin{equation*}
+F_{X}(x;\theta) = \sum\limits_{k = 0} ^x \frac{e^{ - \theta}\theta^{x}}{
+k!}	,
+\end{equation*}
+where $ \theta >0, x = 0,1,2,3,... $
+
+
+
+\subsection{Exponential Distribution}
+
+DF:
+\begin{equation*}
+F_{X}(x;\theta) = 1 - e^{ - \theta x}, 
+\end{equation*}
+where $ \theta > 0, x \in \mathbb{R}_{ + }:= [0, \infty ]$
+
+PDF:
+\begin{equation*}
+f_{x}(x;\theta) = \theta e^{ - \theta x}, 
+\end{equation*}
+where $ \theta > 0, x \in \mathbb{R}_{ + } $
 
 
 
