@@ -516,9 +516,109 @@ what we call {\textbf {moments}} of $ f(x;\bm{\theta}) $.\\
 }\\
 
 
+\subsubsection{Higher Raw moments}
+A direct generalization of the {\textbf {mean}} yields the so-called
+raw moments. For $ h(X):=X^{r}, r = 2,3,4... $ the raw moments:
+\begin{equation*}
+\mu'_{r}(\bm{\theta}):=E(X^{r}) = \int_{ - \infty }^{\infty }
+x^{r}f_{x}(x;\bm{\theta})dx, \quad r = 1,2,3,...
+\end{equation*}
+
+{\textbf {Note:}}
+
+The second raw moment is often useful in deriving the variance.
+Recall 
+\begin{equation*}
+		Var(X) = E(X^{2}) - [E(X)]^{2},
+\end{equation*}
+where $ E(X^{2}) $ is the second raw moment.
 
 
+\noindent\fbox{%
+\parbox{\textwidth}{%
+{\textbf {Lower moments lemma}}
 
+If $ \mu'_{k}:= E(X^{k}) $ exists for some positive integer $ k $, then
+all the raw moments of order less than $ k $ also exists, i.e., 
+\begin{equation*}
+E(X^{i}) < \infty , \quad \forall i = 1,2,...,k - 1
+\end{equation*}
+}%
+}\\
+
+
+\subsubsection{Moment generating function (MGF)}
+A particular convenient way to compute the {\textbf {raw moment}} is
+by way of the MGF using the integral with $ h(X) = e^{tx} $
+\begin{equation*}
+m_{X}(t) := E(e^{tx}) = \int_{ - \infty }^{\infty }e^{tx}f(x)dx,
+\text{ for } t \in ( - h,h), h>0
+\end{equation*}
+
+Recall, $ e^{\theta} = \sum\limits_{i = 0} ^\infty \frac{\theta^{i}}{i!}$
+\begin{equation*}
+
+
+{\textbf {Moments and MGF:}}
+
+The $ r $th raw moments is the $ r $th derivative of MGF with respect
+to $ t $ when $ t = 0 $.
+\begin{equation*}
+\mu'_{r} = E(X^{r}) = \frac{d^{r}m_{X}(t)}{dt^{r}}\Bigg|_{t = 0}:=
+m_{X}^{(r)}(0), r = 1,2,3,...
+\end{equation*}
+
+Hence, mean is the raw moment, $ \mu'_{1} = \frac{dm_{X}(t)}{dt}
+\Bigg|_{t = 0} = m_{X}(0)$\\
+
+Consider {\textbf {Poisson}} distribution as an example.
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+Given the density of Poisson distribution:
+\begin{equation*}
+f_{x}(x) = \frac{e^{ - \theta}\theta^{x}}{x!}
+\end{equation*}
+The MGF can be written as
+\begin{align*}
+m_{X}(t) = E(e^{tX}) &= \sum\limits_{x = 0} ^\infty e^{tx}
+\left( \frac{e^{ - \theta}\theta^{x}}{x!} \right) \\
+&= e^{ - \theta}\sum\limits_{x = 0} ^\infty \frac{e^{tx}\theta^{x}}{x!}\\
+&= e^{ - \theta}\sum\limits_{x = 0} ^\infty \frac{(e^{t}\theta)^{x}}{x!}\\
+\end{align*}
+Recall
+\begin{equation*}
+e^{x} = \sum\limits_{i = 0} ^\infty \frac{x^{i}}{i!}	
+\end{equation*}
+Hence,
+\begin{equation*}
+m_{X}(t) = e^{ - \theta}e^{e^{t}\theta} = e^{\theta(e^{t} - 1)}
+\end{equation*}
+}%
+}\\
+
+Recall the first moment is the first derivative of the MGF with respect
+to $ t $. Hence, we can derive the expectation of Poisson distribution
+\begin{align*}
+E(X) &= \frac{dm_{X}(t)}{dt}\Bigg|_{t = 0}\\
+ &= e^{\theta(e^{t} - 1)}\theta e^{t}\Bigg|_{t = 0}\\
+ &= \theta e^{\theta(e^{t} - 1) + t}\Bigg|_{t = 0}\\
+ &= \theta
+\end{align*}
+
+For the variance, $ Var(X) = E(X^{2}) - (E(X))^{2} $.
+\begin{align*}
+E(X^{2}) &= \frac{d^{2}m_{X}(t)}{dt^{2}}\Bigg|_{t = 0}\\
+ &= \frac{d}{dt}\theta e^{\theta(e^{t} - 1) + t}\Bigg|_{t = 0}\\
+ &= \theta e^{\theta(e^{t} - 1) + t}(\theta e^{t} + 1)\Bigg|_{t = 0}\\
+ &= \theta(\theta + 1)\\
+ &= \theta^{2} + \theta
+\end{align*}
+
+Hence, 
+\begin{equation*}
+Var(X) = \theta^{2} + \theta - \theta^{2} = \theta
+\end{equation*}
 
 
 
