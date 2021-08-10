@@ -556,7 +556,6 @@ m_{X}(t) := E(e^{tx}) = \int_{ - \infty }^{\infty }e^{tx}f(x)dx,
 \end{equation*}
 
 Recall, $ e^{\theta} = \sum\limits_{i = 0} ^\infty \frac{\theta^{i}}{i!}$
-\begin{equation*}
 
 
 {\textbf {Moments and MGF:}}
@@ -619,6 +618,267 @@ Hence,
 \begin{equation*}
 Var(X) = \theta^{2} + \theta - \theta^{2} = \theta
 \end{equation*}
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+
+{\textbf {Uniqueness lemma:}}
+
+When a MGF exists (it does not always exists), it is unique in the sense
+that two RVs X and Y that have the same MGF must have the same
+distribution, and conversely.
+
+
+}%
+}\\
+
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+{\textbf {Probability integral transformation lemma:}}
+
+For any continuous RV $ X $, with cdf $ F_{X}(x) $, the RV defined by
+$ Y = F_{X}(x) $ has a uniform distribution over the range (0,1), i.e., 
+\begin{equation*}
+Y = F_{X}(x) \sim \bm{U}(0,1)
+\end{equation*}
+}%
+}\\
+
+{\textbf {Proof:}}
+
+Derive the MGF for uniform distribution first.
+Recall the pdf of uniform distribution,
+\begin{equation*}
+f(x) = \frac{1}{b - a}
+\end{equation*}
+Then, we can write the MGF as the following
+\begin{align*}
+m_{X}(t) = E(e^{tx}) &= \int_{a}^{b} e^{tx} \frac{1}{b - a}dx\\
+ &= \frac{1}{b - a}\int_{a}^{b} e^{tx}dx\\
+ &= \frac{1}{b - a} \left( \frac{e^{tx}}{t}\Bigg|^{b}_{a} \right) \\
+ &= \frac{1}{b - a}\left( 
+		 \frac{e^{bt} - e^{at}}{t}
+ \right) \\
+ &= \frac{e^{t} - 1}{t}, \text{ if $ (a,b) $ is $ (0,1) $ }
+\end{align*}
+
+Now let's derive the MGF for $ Y = F_{X}(x) $
+\begin{align*}
+m_{Y}(t) = E(e^{tY}) &= \int_{ - \infty }^{\infty }e^{tF(x)} f(x)dx\\
+ &= \int_{ - \infty }^{\infty }e^{tF(x)}dF\\
+ &= \frac{e^{tF(x)}}{t}\Bigg|^{\infty }_{ - \infty }\\
+ &= \frac{e^{t} - 1}{t}
+\end{align*}
+Note: $ F(\infty ) = 1 $, $ F( - \infty ) = 0 $.
+
+
+
+
+
+\subsubsection{Cumulants}
+A cumulant generating function is the logarithm of a MGF.
+\begin{equation*}
+\psi_{X}(t) = \ln (m_{X}(t)) = \sum\limits_{r = 1} ^\infty 
+\bm{\kappa}_{r}\frac{t^{r}}{r!}, \text{ for } t \in ( - h,h), h >0
+\end{equation*}
+where $ \bm{\kappa}_{r}, r = 1,2,3,... $ are referred to as cumulants(or 
+semi-invariants).
+\begin{equation*}
+\bm{\kappa}_{1} =E(X) = \frac{d \psi_{X}(t)}{dt}\Bigg|_{t = 0}
+\end{equation*}
+\begin{equation*}
+\bm{\kappa}_{2} = Var(X) = \frac{d^{2} \psi_{X}(t)}{d t^{2}}
+\Bigg|_{t = 0}
+\end{equation*}
+
+The relation between the first few cumulants and the raw moments are
+as follows:
+\begin{align*}
+\bm{\kappa}_{1}  &= \mu'_{1},\\
+\bm{\kappa}_{2} &= \mu'_{2} - (\mu_{1}')^{2},\\
+\bm{\kappa}_{3}  &= \mu'_{3} - 3 \mu'_{2}\mu'_{1} + 2(\mu'_{1})^{3},\\
+\end{align*}
+
+
+{\textbf {Properties:}}
+The cumulants are often {\textbf {preferable}} to the moments for 
+several reasons including:
+
+1. In the case of the Normal distribution: $ \bm{\kappa}_{r} = 0,
+r = 3,4,...$
+
+2. The $ r $th cumulant is $ r $th-order homogeneous:
+$ \bm{\kappa}_{r}(\alpha X) = \alpha^{r}\bm{\kappa}_{r}(X), r = 1,2,.. $
+
+3. The $ r $th cumulant is a function of the moments of order up to 
+$ r $.
+
+4. For {\textbf {independent}} RVs, the cumulant of the sum is the sum
+of the cumulants:
+\begin{equation*}
+\bm{\kappa}_{r}(\sum\limits_{k = 1} ^n X_{k}	) = \sum\limits_{k = 1} ^n
+\bm{\kappa}_{r}(X_{k}), r = 1,2,...
+\end{equation*}
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+Recall the definition of homogeneous function:
+\begin{equation*}
+f(rx,ry) = r^{k}f(x,y)
+\end{equation*}
+is called function $ f(.) $ is homogeneous of degree $ k $.
+}%
+}\\
+
+
+\subsubsection{Characteristic function(CF)}
+The existence of the MGF depends on $ m_{X}(t) $ being finite on the
+interval $ ( - h,h) $. In such a case, all the moments $ E(X^{r}) $
+are {\textbf {finite.}} If $ E(X^{r}) $ is {\textbf {not finite}} for
+some $ r $, $ m_{X}(t) $ is not finite on the interval. To solve this
+we define the {\textbf {characteristic function}} (Cramer, 1946):
+\begin{equation*}
+\phi_{X}(t):=E(e^{itX}) = \int_{ - \infty }^{\infty }  e^{itX}f(x)dx
+=m_{X}(it), \text{ for } i = \sqrt { - 1},
+\end{equation*}
+CF always exist since for all $ t	 $, $ \phi_{X}(t) $ is bounded:
+\begin{equation*}
+\left\lvert \phi_{X}(t) \right\rvert \le E(\left\lvert 
+e^{itX}\right\rvert )
+\end{equation*}
+
+Hence, in many cases, we can derive the CF using MGF.
+The CF is related to the moments (when they exist) via
+\begin{equation*}
+\phi_{X}(t) = \sum\limits_{r = 0} ^	\infty  \frac{(it)^{r}}{r!}
+\mu_{r}', \text{ for } t \in ( - h,h), h > 0
+\end{equation*}
+
+
+\subsection{Problem of moments}
+The existence and the uniqueness of the moment. In general, the answer
+is no. However, under certain conditions, the answer is yes.
+
+\subsubsection{Lemma 1 (existence)}
+A sufficient (not certainly necessary) condition for the existence of
+moments is that the {\textbf {support}} of the RV $ X $ is a {\textbf {
+bounded	interval}}, i.e., $ \mathbb{R}_{X}:=[a,b] $, where
+$  - \infty < a <b <\infty  $. In this case, {\textbf {all moments
+exist:}}
+\begin{equation*}
+\mu'_{k} = \int_{a}^{b} x^{r}f(x)dx < \infty , \forall k = 1,2,...
+\end{equation*}
+
+
+\subsubsection{Lemma 2 (uniqueness)}
+The moments $ \left\{ \mu'_{k}, k = 1,2,... \right\}  $(assuming they
+exist) determine the distribution function {\textbf {uniquely}} if:
+\begin{equation*}
+\lim_{n \to \infty}\left( \sup_{\substack{  }}
+		\left[ 
+				(2n)^{ - 1}(\mu'_{2n})^{\frac{1}{2n}}
+		\right] 
+\right) < \infty 
+\end{equation*}
+
+Note: sup for supremum (the least upper bound), and inf for infimum
+(the largest lower bound).
+
+\begin{figure}[H]
+		\center{\includegraphics[scale =.3 ]  {figures/supremum.png}}
+		\includegraphics[scale = .3]{figures/infimum.png}
+\end{figure}
+
+
+\subsection{Higher Central Moments}
+The notion of the {\textbf {variance}} can be extended to define the
+{\textbf {central moments}} using the sequence of functions 
+$ h(X):=(X - E(X))^{r}, r = 3,4,... $
+\begin{equation*}
+\mu_{r}(\bm{\theta}):=\int_{ - \infty }^{\infty }
+(x - \mu)^{r}f(x;\bm{\theta})dx, r = 2,3,...	
+\end{equation*}
+
+
+We normally derive the central moments by using the relationship
+with the raw moments and the cumulants.
+\begin{align*}
+\mu_{2} &= \mu'_{2} - (\mu'_{1})^{2} & \kappa_2=\mu_2\\
+\mu_3 &= \mu'_{3} - 3 \mu'_{2}\mu'_{1} + 2(\mu'_{1})^{3} & \kappa_3=
+\mu_3\\
+\mu_4 &= \mu'_{4} - 4 \mu'_{3}\mu'_{1} + 6 \mu'_{2}(\mu'_{1})^{2} - 
+3(\mu'_{1})^{4} & \kappa_4=\mu_4 - 3 \mu_2^{2}
+\end{align*}
+
+
+
+\subsubsection{Symmetry}
+A RV $ X $ with density $ f(x) $ is said to be symmetric about a 
+point a if
+\begin{equation*}
+f(a - x) = f(a + x), \forall x \in \mathbb{R}_{X}
+\end{equation*}
+\begin{equation*}
+F_{X}(a - x) + F_{X}(a + x) = 1, \forall x \in \mathbb{R}_{X}
+\end{equation*}
+
+
+\subsubsection{Skewness}
+It gives us some ideas about the shape/possible asymmetry of a 
+density function around the mean is the {\textbf {skewness}} coefficient
+.
+\begin{equation*}
+{\textbf {Skewness:}} \alpha_3(X)=\frac{\mu_3}{(\sqrt {\mu_2})^{3}}
+\end{equation*}
+Note, $ \sqrt {\mu_2} = (Var(X))^{\frac{1}{2}} = SD $.
+
+If the distribution is symmetric around the mean, $ \alpha_3 = 3 $,
+{\textbf {the converse does not hold!}}
+
+
+\subsubsection{Kurtosis}
+Kurtosis measures the peakedness of a density in relation to the
+shape of the tail.
+\begin{equation*}
+{\textbf {Kurtosis:}}\alpha_4(X) = \frac{\mu_4}{(\mu_2)^{2}}
+\end{equation*}
+
+
+In the case of Normal distribution $ \alpha_4 = 3 $, and it is referred
+to as a mesokurtic distribution. If a distribution is flatter than
+this, we call it platykurtic. And if it is steeper than this, we call
+it leptokurtic
+
+
+
+\subsubsection{Quantile function}
+$ F(x_{p}) = p $
+The value $ p $ is know as the $ p $th {\textbf {percentile}}, and 
+the value $ x_{p} $ the corresponding quantile.
+\begin{equation*}
+x_{\frac{1}{4}} = F^{ - }(0.25),\quad x_{\frac{3}{4}} = F^{ - }(0.75)
+\end{equation*}
+where $ F^{ - }(.) $ is known as the {\textbf {quantile function}}.
+
+\begin{equation*}
+F_{X}^{ - }(.):(0,1) \rightarrow \mathbb{R}_{X}
+\end{equation*}
+
+For example, In the case of standard Normal distribution,
+\begin{equation*}
+x_{\frac{1}{4}} = -0.6745, \quad x_{\frac{3}{4}} = 0.6745
+\end{equation*}
+
+For an arbitrary Normal distribution,
+\begin{equation*}
+x_{\frac{1}{4}} = \mu - 0.6745 \sigma, \quad x_{\frac{3}{4}} = 
+\mu  + 0.6745 \sigma
+\end{equation*}
+
+
+\subsubsection{Interquartile range}
+$ IQR(X): = (x_{\frac{3}{4}} - x_{\frac{1}{4}}) $
 
 
 
@@ -703,6 +963,101 @@ Let X be a RV with bounded variance:
 \text{ for any }\varepsilon > 0
 \end{equation*}
 
+
+
+
+
+\subsection{General Chebyshev's Inequality}
+Let $ X(.): S \rightarrow \mathbb{R}_{X}:=(0,\infty ) $ be a positive
+RV, and let $ g(.):(0,\infty ) \rightarrow (0,\infty ) $ be a positive
+and increasing function. Then for each $ \varepsilon >0 $:
+\begin{equation*}
+\mathbb{P}(g(X) \ge  \varepsilon) \le  \frac{E(g(X))}{g(\varepsilon)}
+\end{equation*}
+
+
+\subsection{Markov's inequality}
+Let $ X $ be a RV such that $ E(|X|^{p}) < \infty  $ for $ p > 0 $:
+\begin{equation*}
+\mathbb{P}(|X| \ge  \varepsilon) \le \frac{E(|X|^{p})}{\varepsilon^{p}}
+\end{equation*}
+
+
+\subsection{Jensen's inequality}
+Let $ \varphi(.): \mathbb{R} \rightarrow \mathbb{R} $ be a convex 
+function, i.e.,:
+\begin{equation*}
+\lambda \varphi(x) + (1 - \lambda)\varphi(y) \ge \varphi(\lambda x  + (
+1 - \lambda)y), \quad \lambda \in (0,1), \quad, x,y \in \mathbb{R}.
+\end{equation*}
+Assuming that $ E(\left\lvert X \right\rvert ) < \infty  $, then
+\begin{equation*}
+\varphi(E(X)) \le  E(\varphi(X))
+\end{equation*}
+
+
+\subsection{Minkowski's inequality}
+Let $ X $ and $ Y $ be RVs such that $ E(|X|^{p}) < \infty  $, and
+$ E(|Y|^{p}) < \infty  $, where $ 1 \le p < \infty  $ then:
+\begin{equation*}
+		E(|X + Y|^{p})^{\frac{1}{p}} \le  E(|X|^{p})^{\frac{1}{p}} + 
+		E(|Y|^{p})^{\frac{1}{p}}
+\end{equation*}
+
+
+
+
+
+
+
+\section{Sampling Model}
+
+\subsection{Joint Distribution}
+For Discrete RVs:
+
+The {\textbf {joint density}} function is defined by:
+\begin{align*}
+		&f(.,.): \mathbb{R}_{X} \times \mathbb{R}_{Y} \rightarrow [0,1]\\
+		&f(x,y) = \mathbb{P}\left\{ 
+				s:X(s) = x	, Y(s) = y	\right\} , (x,y) \in \mathbb{R}_{X}
+				 \times \mathbb{R}_{Y}
+\end{align*}
+
+
+For Continuous RVs:
+
+The joint distribution function:
+\begin{equation*}
+		F_{XY}(.,.): \mathbb{R}^{2} \rightarrow [0,1],
+\end{equation*}
+\begin{equation*}
+F_{XY}(x,y) = \mathbb{P}\left\{ 
+s:X(s) \le x, Y(s) \le y \right\} = P_{XY}(( - \infty ,x)  \times 
+( - \infty , y)), \quad(x,y) \in \mathbb{R}^{2}
+\end{equation*}
+
+
+
+The joint cdf can also be defined on intervals of the form $ (a,b] $
+\begin{equation*}
+\mathbb{P}\left\{ s:x_1 < X(s) \le x_2, y_1 < Y(s) \le y_2 \right\} =
+F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1)
+\end{equation*}
+
+\subsubsection{joint density}
+Assuming that $ f(x,y) > 0 $ exists, the joint density function is 
+defined via:
+\begin{equation*}
+F(x,y) = \int_{ - \infty }^{x} \int_{ - \infty }^{y}
+f(u,v) du dv
+\end{equation*}
+
+In the case where $ F(x,y) $ is differentiable at $ (x,y) $ we can 
+derive the {\textbf {joint density}} by partial differentiation:
+\begin{equation*}
+f(x,y) = \frac{\partial^{2} F(x,y)  }{\partial x \partial y },
+\end{equation*}
+at all continuity points of $ f(x,y) $.
 
 
 
@@ -915,6 +1270,24 @@ f_{x}(x;\theta) = \theta e^{ - \theta x},
 where $ \theta > 0, x \in \mathbb{R}_{ + } $
 
 
+\subsection{Cauchy distribution}
+Cauchy distribution $ C(\alpha,\beta) $ has no moments.
+\begin{equation*}
+F(x;\alpha,\beta) = \frac{1}{2} + \left( 
+		\frac{1}{\pi}tan^{ - 1}\left( 
+				\frac{x - \alpha}{\beta}
+		\right) 
+\right) 
+\end{equation*}
+\begin{equation*}
+f(x;\alpha,\beta) = \frac{1}{\beta \left( 
+				1  + \left( 
+						\frac{x - \alpha}{\beta}
+				\right) ^{2}
+\right) }
+\end{equation*}
+where $ \alpha \in \mathbb{R}, \beta \in \mathbb{R}_{ + }, x \in 
+\mathbb{R}$.
 
 
 
