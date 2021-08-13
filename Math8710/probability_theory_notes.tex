@@ -922,7 +922,8 @@ Var(X):= \sum\limits_{i = 1}^{n} (X_{i} - \mu)^{2}f_{x}(x;\bm{\theta})
 \subsubsection{Properties}
 1. $ Var(c) = 0 $
 
-2. $ Var(aX_1 + bX_2) = a^{2}Var(X_1) + b^{2}Var(X_2) $
+2. $ Var(aX_1 + bX_2) = a^{2}Var(X_1) + b^{2}Var(X_2) + 2abCov(X_1,X_2)
+$
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
@@ -1045,6 +1046,8 @@ F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1)
 \end{equation*}
 
 \subsubsection{joint density}
+{\textbf {Bivariate}}
+
 Assuming that $ f(x,y) > 0 $ exists, the joint density function is 
 defined via:
 \begin{equation*}
@@ -1058,6 +1061,455 @@ derive the {\textbf {joint density}} by partial differentiation:
 f(x,y) = \frac{\partial^{2} F(x,y)  }{\partial x \partial y },
 \end{equation*}
 at all continuity points of $ f(x,y) $.
+
+
+{\textbf {Properties}}
+
+1. $ f(x,y) \ge 0 \forall  (x,y) \in \mathbb{R}_{X} \times \mathbb{R}
+_{Y}$
+
+2. $ \int_{ - \infty }^{\infty }\int_{ - \infty }^{\infty }f(x,y)
+dx \cdot  dy = 1$
+
+3. $ F_{XY}(a,b) = \int_{ - \infty }^{a} \int_{ - \infty }^{b}
+f(x,y)dx dy$
+
+4. $ f(x,y) = \frac{\partial ^{2} F(x,y) }{\partial x \partial y } $
+
+5. $ \sum\limits_{i = 1} ^\infty \sum\limits_{j = 1} ^\infty f(x
+_{i},y_{j}) = 1		, 
+F(x_{k},y_{m}) = \sum\limits_{i = 1} ^k \sum\limits_{j = 1} ^	m
+f(x_{i}, y_{j})
+$\\
+
+
+{\textbf {n-random variables:}}
+
+1. $ f(x_1,x_2,...,x_{n}) \ge 0, \forall (x_1,x_2,...,x_{n}) \in 
+\mathbb{R}_{X}^{n}$
+
+2. $ \int_{ - \infty }^{x_1}\int_{ - \infty }	^{x_2} \cdots
+\int_{ - \infty }^{x_{n}} f(x_1,x_2,...,x_{n}) dx_1dx_2 \cdots dx_{n}
+=1$
+
+3. $ F(x_1,x_2,...,x_{n}) = \int_{ - \infty }^{x_1}\int_{ - \infty }^{
+x_2} \cdots \int_{ - \infty }^{x_{n}} f(u_1,u_2,...,u_{n})du_1 du_2 
+... du_{n}$
+
+
+
+
+
+\subsection{Joint moments}
+We define the {\textbf {joint product moments}} of order $ (k,m) $ by:
+\begin{equation*}
+\mu'_{km} = E \left\{ X^{k}Y^{m} \right\} , k,m = 0,1,2,...,
+\end{equation*}
+and the {\textbf {joint central moments}} of order $ (k,m) $ are defined
+by:
+\begin{equation*}
+\mu_{km} = E \left\{ 
+		(X - E(X))^{k}(Y - E(Y))^{m}
+\right\} , k,m = 0,1,2,...
+\end{equation*}
+
+\begin{align*}
+&\mu'_{10} = E(X), &\mu_{10} &= 0\\
+&\mu'_{01} = E(Y), &\mu_{01} &= 0\\
+&\mu'_{20} = E(X)^{2} + Var(X), &\mu_{20} &= Var(X)\\
+&\mu'_{02} = E(Y)^{2} + Var(Y), &\mu_{02} &= Var(Y)\\
+&\mu'_{11} = E(XY), &\mu_{11} &= E[(X - E(X))(Y - E(Y))]
+\end{align*}
+
+The most widely used joint moment is the {\textbf {covariance}}, 
+defined by
+\begin{equation*}
+\mu_{11}:= Cov(X,Y) = E \left\{ 
+		[X - E(X)][Y - E(X)]
+\right\} 
+\end{equation*}
+
+{\textbf {Properties:}}
+
+1. $ Cov(X,Y) = E(XY) - E(X)\cdot E(Y) $
+
+2. $ Cov(X,Y) = Cov(Y,X) $
+
+3. $ Cov(aX + bY, Z) = a Cov(X,Y) + b Cov(Y,Z) $, for $ (a,b) \in
+\mathbb{R}^{2}$
+
+
+
+
+
+
+
+\subsection{Marginal Distribution}
+The {\textbf {marginal distribution}} is derived via a limiting
+process of the join cdf:
+\begin{equation*}
+F_{X}(x) = \lim_{y \to \infty}F(x,y) \text{ and } F_{Y}(y) = 
+\lim_{x \to \infty}F(x,y)
+\end{equation*}
+
+For example, consider the bivariate exponential distribution:
+\begin{equation*}
+F(x,y) = (1 - e^{ - \alpha x})(1 - e^{ - \beta y}), \alpha,\beta,x,y >0
+\end{equation*}
+The marginal distribution:
+\begin{align*}
+F_{X}(x) = \lim_{y \to \infty}F(x,y) &= \lim_{y \to \infty}
+(1 - e^{ - \alpha x})(1 - e^{ - \beta y})\\
+ &= 1 - e^{ - \alpha x}\\
+F_{Y}(y) = \lim_{x \to \infty}F(x,y)  &= \lim_{x \to \infty}  
+(1 - e^{ - \alpha x})(1 - e^{ - \beta y})\\
+ &= 1 - e^{ - \beta y}
+\end{align*}
+
+\subsection{Defined with density funciton}
+\subsubsection{Continuous RV}
+
+\begin{equation*}
+F_{X}(x) = \lim_{y \to \infty} F(x,y) = \lim_{ y\to \infty}
+\int_{ - \infty }^{x} \int_{ - \infty }^{y}f(x,y)dydx = 
+\int_{ - \infty }^{x}\left[ 
+		\int_{ - \infty }^{\infty }f(x,y)dy 
+\right]  dx
+\end{equation*}
+And,
+\begin{equation*}
+f_{x}(x) = \int_{ - \infty }^{\infty }f(x,y)dy, x \in \mathbb{R}_{X} 
+\end{equation*}
+\begin{equation*}
+f_{y}(y) = \int_{ - \infty }^{\infty }f(x,y)dx, y \in \mathbb{R}_{Y} 
+\end{equation*}
+
+
+
+\subsubsection{Discrete RV}
+
+\begin{equation*}
+f_{x}(x) = \sum\limits_{i = 1} ^\infty f(x,y_{i}), X \in \mathbb{R}_{X}	
+\end{equation*}
+\begin{equation*}
+f_{y}(y) = \sum\limits_{i = 1} ^\infty f(x_{i},y), y \in \mathbb{R}_{y}	
+\end{equation*}
+
+
+\section{Conditional Distribution}
+\subsection{Discrete RVs}
+Two RVs $ X $ and $ Y $
+\begin{equation*}
+A = \left\{ Y = y \right\} , B = \left\{ X = x \right\} 
+\end{equation*}
+
+\begin{align*}
+& \mathbb{P}(X = x) = f(x)\\
+& \mathbb{P}(Y = y,X = x) = f(x,y)\\
+& \mathbb{P}(Y = y|X = x) = f(y|x)
+\end{align*}
+
+\subsection{Continuous RVs}
+
+Two RVs $ X $ and $ Y $
+\begin{equation*}
+A = \left\{ X \le x \right\} , B = \left\{ Y \le  y \right\} 
+\end{equation*}
+
+The conditional cdf:
+\begin{equation*}
+F_{Y|X}(y|X = x) = \lim_{h \to 0^{ + }}
+\frac{\mathbb{P}(Y \le y, x \le X \le x + h)}{\mathbb{P}(
+x \le X \le x + h)}
+= \int_{ - \infty }^{y }  \frac{f(x,u)}{f_{x}(x)}du
+\end{equation*}
+
+{\textbf {Note:}}
+
+This suggest that we could indeed define the conditional density 
+function but we {\textbf {should not}} interpret it as {\textbf {
+assigning}} probabilities because:
+\begin{equation*}
+		f(.|x): \mathbb{R}_{Y}\rightarrow[0,\infty )
+\end{equation*}
+
+\subsubsection{Properties:}
+1. $ f(y|x) \ge 0, \quad \forall  y \in \mathbb{R}_{Y} $
+
+2. $ \int_{ - \infty }^{\infty }f(y|x)dy = 1  $
+
+3. $ F(y|x) = \int_{ - \infty }^{y}f(u|x)du  $
+
+For example:
+
+Consider the case where the joint density function:
+\begin{equation*}
+f(x,y) = 8xy, \quad 0 < x < y, 0 < y < 1
+\end{equation*}
+The marginal densities of $ x $ and $ y $ can be derived from the
+joint density:
+\begin{align*}
+f_{x}(x) &= \int_{x}^{1} (8xy)dy = 4xy^{2}|^{y = 1}_{y = x}=
+4x(1 - x^{2}), \quad 0 < x < 1\\
+f_{y}(y) &= \int_{0}^{y}(8xy)dx = 4x^{2}y|_{x = 0}^{x = y} = 4y^{3} ,
+\quad 0 < y < 1
+\end{align*}
+
+Then, we can derive the conditional densities:
+\begin{align*}
+f(y|x) &= \frac{8xy}{4x(1 - x^{2})} = \frac{2y}{(1 - x^{2})}, \quad
+x < y < 1, 0 < x < 1\\
+f(x|y) &= \frac{8xy}{4y^{3}} = \frac{2x}{y^{2}}, \quad
+0 < x< y, 0 < y < 1
+\end{align*}
+
+
+{\textbf {Note:}}
+
+The range of $ X $ and $ Y $ is constrained by each other.
+
+
+
+\subsection{Continuous and Discrete RVs}
+It turns out that a most convenient way to specify such a joint
+distribution is via the conditional density
+
+Consider the case where $ F(x,y) $ is the joint cdf of the RV 
+$ (X,Y) $ where $ X $ is {\textbf {discrete}} and $ Y $ is {\textbf {
+continuous}}. Let $ \mathbb{R}_{X} = \left\{ x_1,x_2,... \right\}  $
+be the range of values of the RV $ X $. The joint cdf is completely
+determined by the sequence of pairs of a marginal probability and the
+associated conditional density:
+\begin{equation*}
+(f_{x}(x_{k}),f(y|x_{k}), \forall y_{k} \in \mathbb{R}_{X})
+\end{equation*}
+
+The only difficulty in this result is how to specify the  conditional
+density. It is defined by:
+\begin{equation*}
+		f(y|x_{k}) = \frac{1}{f_{x}(x_{k})}\frac{d[F(x_{k},y) - 
+				F(x_{k} - 0,y)]}{dy},
+\end{equation*}
+where the notation $ (x_{k} - 0) $ indicates taking the derivative from
+the left, such that:
+\begin{equation*}
+F(x,y) = \sum\limits_{x_{k} \le x} f_{x}(x_{k}) \int_{ - \infty }^{y} 
+f(u|x_{k})du
+\end{equation*}
+Similarly, the marginal distribution of the random variable $ Y $ is 
+defined by:
+\begin{equation*}
+F_{Y}(y) = \sum\limits_{x_{k} \in \mathbb{R}_{X}} f_{x}(x_{k})
+\int_{ - \infty }^{y} f(u|x_{k})du
+\end{equation*}
+
+
+\subsection{Conditional moments}
+\subsubsection{Continuous RVs}
+Raw conditional moments:
+\begin{equation*}
+		E(Y^{r}|X = x) = \int_{ - \infty }^{\infty }y^{r}f(y|x)dy, 
+		r = 1,2,...
+\end{equation*}
+Central moments:
+\begin{equation*}
+		E \left\{ (Y - E[Y|X = x])^{r}|X = x \right\} = \int_{ - \infty }^{
+		\infty } [y - E(y|x)]^{r}f(y|x)dy, r = 2,3,...
+\end{equation*}
+
+\subsubsection{Discrete RVs}
+Conditional mean:
+\begin{equation*}
+E(Y|X = x) = \sum\limits_{y \in \mathbb{R}_{Y}} y \cdot f(y|x)
+\end{equation*}
+
+Conditional Variance:
+\begin{equation*}
+		Var(Y|X = x) = \sum\limits_{y \in \mathbb{R}_{Y}} [y - E(y|x)]^{2}
+		\cdot f(y|x)
+\end{equation*}
+
+
+
+
+\section{Truncation}
+In addition to conditioning on events of the form $ \left\{ 
+X = x\right\}  $, it is often of interest to condition on events such
+as:
+\begin{equation*}
+\left\{ X > a \right\} , \left\{ X < b \right\} , \text{ or }
+\left\{ a < X \le b \right\} 
+\end{equation*}
+Consider a general case of conditioning on the event 
+$ \left\{ a < x \le b \right\}  $, referred to as {\textbf {double
+truncation}}. In the case of a {\textbf {discrete}} RV $ X $ with a 
+range of values $ \mathbb{R}_{X}:= \left\{ x_1,x_2,... \right\}  $,
+the conditional probability function of $ X $ given $ \left\{ 
+a < x \le b\right\}  $ should be given by:
+\begin{equation*}
+f(x_{i}|a < X \le b) = \frac{f(x)}{\sum\limits_{a < x_{j} \le b} 
+f(x_{j})}, \text{ for } a < x_{i} \le b
+\end{equation*}
+
+In the case of {\textbf {continuous RV}} $ X $ the conditional 
+probability would be
+\begin{equation*}
+f(x|a < x \le b) = \frac{f(x)}{\int_{a}^{b}f(x)dx } = 
+\frac{f(x)}{F(b) - F(a)}, \text{ for } a < x \le b
+\end{equation*}
+
+
+The function $ f(x|a < x \le b), f(x|X > a), f(x|X < b) $ are often
+referred to as {\textbf {truncated density functions}} and they are 
+enjoy the usual properties:
+
+1. $ f(x|a < x \le b) \ge 0, \forall x \in \mathbb{R}_{X} $
+
+2. $ \int_{a}^{b}f(x|a < x \le b)dx = 1  $\\
+
+For example
+
+\begin{equation*}
+f(x) = \theta e^{ - \theta x}, \text{ and } F(x) = 1 - e^{ - \theta x},
+y > 0
+\end{equation*}
+The truncation function for $ X > t $ would be
+
+\begin{align*}
+f(x|X > t) &= \frac{f(x)}{F(\infty ) - F(t)}\\
+ &= \frac{\theta e^{ - \theta x}}{1 - (1 - e^{ - \theta x})}\\
+ &= \frac{\theta e^{ - \theta x}}{e^{ - \theta x}}\\
+ &= \theta e^{\theta (t - x)}
+\end{align*}
+
+
+
+
+\section{Hazard function}
+
+Truncation is a function of $ x $  and $ t $. Viewing ti as a function
+of $ t $ only, we define the {\textbf {hazard function:}}
+\begin{equation*}
+h(t) = \frac{f(t)}{1 - F(t)} = \frac{f(t)}{S(t)}, \quad x >t,
+\end{equation*}
+where the $ S(t) $ is called the {\textbf {survival function.}}
+It can measure the probability of a patient that will survive after
+time $ t $, i.e., $ x > t $.
+
+The hazard function  is also called the {\textbf {force of mortality}},
+{\textbf {the
+instantaneous	failure rate}}, etc. The most common use of the function
+is to model a participant's chance of death as a function of their age.
+
+
+
+
+
+\section{Independence}
+Two events $ A $ and $ B $ belongs to event space $ \mathfrak{F} $
+are said to be independent if:
+\begin{equation*}
+\mathbb{P}(A \cap  B)  = \mathbb{P}(A)\cdot \mathbb{P}(B)
+\end{equation*}
+translating $ A:= (s:X(s) \le x) $, and $ B:= (s:Y(s) \le  y) , s \in S$
+, the above condition becomes:
+\begin{align*}
+& \mathbb{P}(X \le x, Y \le  y) = \mathbb{P}(X \le x)\cdot \mathbb{P}
+(Y \le  y) , \text{  for each } (x,y) \in \mathbb{R}^{2}\\
+& F_{XY}(x,y) = F_{X}(x)\cdot F_{Y}(y) \text{ for each }(x,y) 
+\in \mathbb{R}^{2}\\
+& f(x,y) = f_{x}(x)\cdot f_{y}(y), \text{  for each }(x,y) \in 
+\mathbb{R}^{2}
+\end{align*}
+
+{\textbf {Note:}}
+
+If $ X \text{ and } Y $ are independent:
+\begin{equation*}
+f(y|x) = f_{y}(y) \quad \forall  y \in \mathbb{R}_{Y}
+\end{equation*}
+
+
+{\textbf {Independence for n RVs}}
+\begin{equation*}
+F(x_1,x_2,x_3,...,x_{n}) = F_1(x_1)\cdot F_2(x_2)\cdots F_{n}(x_{n}),
+\quad \forall  (x_1,...x_{n}) \in \mathbb{R}^{n}
+\end{equation*}
+
+
+\section{Identical distributed}
+Two RVs $ X \text{ and } Y $ are said to be Identical Distributed if
+$ f_{x}(x; \bm{\theta}_{1}) $ and $ f_{y}(y; \bm{\theta}_{2}) $ are the
+same density functions,
+\begin{equation*}
+f_{x}(x; \bm{\theta}_{1}) \equiv f_{y}(y; \bm{\theta}_{2}), \quad
+\forall  (x,y) \in \mathbb{R}_{X}  \times \mathbb{R}_{Y},
+\end{equation*}
+and
+\begin{equation*}
+f_{x}(.) = f_{y}(.), \quad \bm{\theta}_{1} = \bm{\theta}_{2} = 
+\bm{\theta}
+\end{equation*}
+
+
+
+\subsection{Random sample}
+The sample $ \bm{X}^{IID}_{(n)}:=(X_1,X_2,...,X_{n}) $ is called a 
+{\textbf {random sample}} if the RVs are:\\
+1. Independent:
+\begin{equation*}
+f(x_1,x_2,..,x_{n};\bm{\phi}) = \prod_{k = 1} ^ n	f_{k}(k_{k};
+\bm{\theta}_{k}) \quad \forall  (x_1,...,x_{n}) \in \mathbb{R}^{n}
+\end{equation*}
+
+2. Identical distributed:
+\begin{equation*}
+f_{k}(x_{k};\bm{\theta}_{k}) = f(x_{k};\bm{\theta}), \quad \forall 
+k = 1,2,...,n
+\end{equation*}
+
+Putting two together, the joint density for $ \bm{X}^{IID}_{(n)}:=
+(X_1,X_2,...,X_{n})$ takes the form:
+\begin{equation*}
+f(x_1,x_2,...,x_{n}; \bm{\phi}) = \prod_{k = 1} ^n f_{k}(x_{k};
+\bm{\theta}_{k}) = \prod_{k = 1} ^ n f(x_{k};\bm{\theta}), \quad
+foral (x_1,...,x_{n}) \in \mathbb{R}^{n}
+\end{equation*}
+
+Note that $ f_{k}(x_{k};\bm{\theta}_{k}) $ denotes the {\textbf {
+marginal distribution}} of $ X_{k}(.) $, derived by integrating out
+all the other RVs apart from $ X_{k}(.) $, i.e., 
+\begin{equation*}
+f_{k}(x_{k};\bm{\theta}_{k}) = \int_{ - \infty }^{\infty } 
+\int_{ - \infty }^{\infty } \cdots \int_{ - \infty }^{\infty }f(
+x_1,...x_{k - 1}, x_{k}, x_{k + 1}, ..., x_{n}; \bm{\phi})dx_1...
+dx_{k - 1}...dx_{n}
+\end{equation*}
+
+
+\subsection{Sampling Model}
+A {\textbf {sampling model}} is a set of RV $ (X_1, ..., X_{n}) $
+with a certain probabilistic structure. The primary objective of the
+sampling model is to relate the observed data to the probability model.
+
+
+
+
+
+
+
+
+\section{A simple statistical model}
+Now we can define a generic simple statistical model:
+1. Probability model: $ \Phi = \left\{ f(x;\bm{\theta}), 
+\bm{\theta} \in \Theta, x \in \mathbb{R}_{X}\right\}  $
+
+
+
+
+
+
+
 
 
 

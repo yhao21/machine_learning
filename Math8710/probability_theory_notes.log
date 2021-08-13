@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.31)  7 AUG 2021 14:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.31)  12 AUG 2021 12:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -512,63 +512,68 @@ File: figures/infimum.png Graphic file (type png)
 <use figures/infimum.png>
 Package pdftex.def Info: figures/infimum.png  used on input line 790.
 (pdftex.def)             Requested size: 385.96996pt x 101.85631pt.
- [18 <./figures/supremum.png (PNG copy)> <./figures/infimum.png (PNG copy)>]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 836--846
+ [18 <./figures/supremum.png (PNG copy)> <./figures/infimum.png (PNG copy)>] [1
+9] [20]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 928--938
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--846
+Underfull \hbox (badness 10000) in paragraph at lines 928--938
 
  []
 
-[19] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1012
+[21] [22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1084
 
  []
 
-[22]
-<figures/discrete_uniform_pdf.png, id=93, 354.57469pt x 350.05782pt>
+[24] [25] [26] [27] [28] [29] [30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1437--1439
+
+ []
+
+<figures/discrete_uniform_pdf.png, id=122, 354.57469pt x 350.05782pt>
 File: figures/discrete_uniform_pdf.png Graphic file (type png)
 <use figures/discrete_uniform_pdf.png>
 Package pdftex.def Info: figures/discrete_uniform_pdf.png  used on input line 1
-039.
+466.
 (pdftex.def)             Requested size: 177.28691pt x 175.02847pt.
-<figures/discrete_uniform_cdf.png, id=94, 360.59718pt x 348.55219pt>
+<figures/discrete_uniform_cdf.png, id=123, 360.59718pt x 348.55219pt>
 File: figures/discrete_uniform_cdf.png Graphic file (type png)
 <use figures/discrete_uniform_cdf.png>
 Package pdftex.def Info: figures/discrete_uniform_cdf.png  used on input line 1
-040.
+467.
 (pdftex.def)             Requested size: 180.29814pt x 174.27565pt.
- [23 <./figures/discrete_uniform_pdf.png (PNG copy)> <./figures/discrete_unifor
-m_cdf.png (PNG copy)>] [24] (./probability_theory_notes.aux) ) 
+[32 <./figures/discrete_uniform_pdf.png (PNG copy)> <./figures/discrete_uniform
+_cdf.png (PNG copy)>] [33] [34] (./probability_theory_notes.aux) ) 
 Here is how much of TeX's memory you used:
  5920 strings out of 480909
  90422 string characters out of 5905567
- 394014 words of memory out of 5000000
+ 394007 words of memory out of 5000000
  23024 multiletter control sequences out of 15000+600000
  421476 words of font info for 97 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  68i,13n,75p,304b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive
-/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/f
-onts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2020/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on probability_theory_notes.pdf (24 pages, 521303 bytes).
+</usr/local/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/
+2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/
+2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2020/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on probability_theory_notes.pdf (34 pages, 545996 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 179 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
